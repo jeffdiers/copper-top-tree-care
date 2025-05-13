@@ -1,40 +1,55 @@
-"use client"
-
-import type React from "react"
-
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Textarea } from "@/components/ui/textarea"
-import { useToast } from "@/hooks/use-toast"
-import { Phone, Mail, MapPin, Clock } from "lucide-react"
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { submitContactForm } from "@/app/api/contact/action";
+import { useFormStatus } from "react-dom";
 
 export default function ContactPageClient() {
-  const { toast } = useToast()
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const { toast } = useToast();
+  const [formState, setFormState] = useState<{
+    message: string;
+    success: boolean;
+  } | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+  async function clientAction(formData: FormData) {
+    const result = await submitContactForm(formData);
+    setFormState(result);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      toast({
-        title: "Form submitted successfully",
-        description: "We'll get back to you as soon as possible.",
-      })
+    toast({
+      title: result.success
+        ? "Form submitted successfully"
+        : "Form submission error",
+      description: result.message,
+      variant: result.success ? "default" : "destructive",
+    });
 
-      // Reset form
-      const form = e.target as HTMLFormElement
-      form.reset()
-    }, 1500)
+    if (result.success) {
+      // Reset form on success
+      const form = document.getElementById("contact-form") as HTMLFormElement;
+      form?.reset();
+    }
   }
 
   return (
@@ -70,11 +85,16 @@ export default function ContactPageClient() {
                 <CardHeader>
                   <CardTitle>Get a Free Quote</CardTitle>
                   <CardDescription>
-                    Fill out the form below and we'll get back to you as soon as possible.
+                    Fill out the form below and we'll get back to you as soon as
+                    possible.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form
+                    id="contact-form"
+                    action={clientAction}
+                    className="space-y-6"
+                  >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="first-name">First Name</Label>
@@ -104,22 +124,54 @@ export default function ContactPageClient() {
 
                     <div className="space-y-2">
                       <Label>Service Type</Label>
-                      <RadioGroup defaultValue="tree-trimming" className="grid grid-cols-2 gap-2">
+                      <input
+                        type="hidden"
+                        name="serviceType"
+                        id="serviceType"
+                        value="tree-trimming"
+                      />
+                      <RadioGroup
+                        defaultValue="tree-trimming"
+                        className="grid grid-cols-2 gap-2"
+                        onValueChange={(value) => {
+                          document
+                            .getElementById("serviceType")
+                            ?.setAttribute("value", value);
+                        }}
+                      >
                         <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="tree-trimming" id="tree-trimming" />
-                          <Label htmlFor="tree-trimming" className="cursor-pointer">
+                          <RadioGroupItem
+                            value="tree-trimming"
+                            id="tree-trimming"
+                          />
+                          <Label
+                            htmlFor="tree-trimming"
+                            className="cursor-pointer"
+                          >
                             Tree Trimming
                           </Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="tree-removal" id="tree-removal" />
-                          <Label htmlFor="tree-removal" className="cursor-pointer">
+                          <RadioGroupItem
+                            value="tree-removal"
+                            id="tree-removal"
+                          />
+                          <Label
+                            htmlFor="tree-removal"
+                            className="cursor-pointer"
+                          >
                             Tree Removal
                           </Label>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="stump-grinding" id="stump-grinding" />
-                          <Label htmlFor="stump-grinding" className="cursor-pointer">
+                          <RadioGroupItem
+                            value="stump-grinding"
+                            id="stump-grinding"
+                          />
+                          <Label
+                            htmlFor="stump-grinding"
+                            className="cursor-pointer"
+                          >
                             Stump Grinding
                           </Label>
                         </div>
@@ -140,14 +192,18 @@ export default function ContactPageClient() {
 
                     <div className="space-y-2">
                       <Label htmlFor="timeframe">Timeframe</Label>
-                      <Select name="timeframe">
+                      <Select name="timeframe" defaultValue="asap">
                         <SelectTrigger>
                           <SelectValue placeholder="When do you need service?" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="asap">As Soon As Possible</SelectItem>
+                          <SelectItem value="asap">
+                            As Soon As Possible
+                          </SelectItem>
                           <SelectItem value="1-week">Within 1 Week</SelectItem>
-                          <SelectItem value="2-weeks">Within 2 Weeks</SelectItem>
+                          <SelectItem value="2-weeks">
+                            Within 2 Weeks
+                          </SelectItem>
                           <SelectItem value="month">Within a Month</SelectItem>
                           <SelectItem value="flexible">Flexible</SelectItem>
                         </SelectContent>
@@ -164,10 +220,16 @@ export default function ContactPageClient() {
                       />
                     </div>
 
-                    <Button type="submit" className="w-full bg-green-700 hover:bg-green-800" disabled={isSubmitting}>
-                      {isSubmitting ? "Submitting..." : "Submit Request"}
-                    </Button>
+                    <SubmitButton />
                   </form>
+
+                  {formState && (
+                    <div
+                      className={`mt-4 p-4 rounded-md ${formState.success ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"}`}
+                    >
+                      {formState.message}
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             </div>
@@ -175,7 +237,9 @@ export default function ContactPageClient() {
             {/* Contact Info */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-6">Contact Information</h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                  Contact Information
+                </h2>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
@@ -196,8 +260,12 @@ export default function ContactPageClient() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">Email</h3>
-                      <p className="text-muted-foreground">info@coppertoptree.com</p>
-                      <p className="text-sm text-muted-foreground mt-1">We typically respond within 24 hours</p>
+                      <p className="text-muted-foreground">
+                        info@coppertoptree.com
+                      </p>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        We typically respond within 24 hours
+                      </p>
                     </div>
                   </div>
 
@@ -229,7 +297,9 @@ export default function ContactPageClient() {
                         <p>Sunday:</p>
                         <p>Closed</p>
                       </div>
-                      <p className="text-sm text-muted-foreground mt-2">Emergency services available 24/7</p>
+                      <p className="text-sm text-muted-foreground mt-2">
+                        Emergency services available 24/7
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -238,7 +308,8 @@ export default function ContactPageClient() {
               <div className="bg-green-50 p-6 rounded-lg">
                 <h3 className="font-semibold text-lg mb-4">Service Area</h3>
                 <p className="text-muted-foreground mb-4">
-                  We proudly serve residential and commercial clients throughout the following areas:
+                  We proudly serve residential and commercial clients throughout
+                  the following areas:
                 </p>
                 <ul className="grid grid-cols-2 gap-2 text-muted-foreground">
                   <li>Anytown</li>
@@ -273,7 +344,9 @@ export default function ContactPageClient() {
             <div className="aspect-[16/9] bg-gray-200 rounded-lg overflow-hidden">
               {/* This would be replaced with an actual map component in production */}
               <div className="w-full h-full flex items-center justify-center">
-                <p className="text-muted-foreground">Interactive Map Would Be Displayed Here</p>
+                <p className="text-muted-foreground">
+                  Interactive Map Would Be Displayed Here
+                </p>
               </div>
             </div>
           </div>
@@ -284,7 +357,9 @@ export default function ContactPageClient() {
       <section className="py-16 md:py-24">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Frequently Asked Questions
+            </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Find answers to common questions about our services
             </p>
@@ -297,8 +372,10 @@ export default function ContactPageClient() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Tree removal costs vary based on size, location, accessibility, and condition. We provide free on-site
-                  estimates to give you an accurate price for your specific situation.
+                  Tree removal costs vary based on size, location,
+                  accessibility, and condition. We provide free on-site
+                  estimates to give you an accurate price for your specific
+                  situation.
                 </p>
               </CardContent>
             </Card>
@@ -309,32 +386,39 @@ export default function ContactPageClient() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Yes, Copper Top Tree Services is fully licensed and insured. We carry comprehensive liability
-                  insurance and workers' compensation to protect both our clients and our team.
+                  Yes, Copper Top Tree Services is fully licensed and insured.
+                  We carry comprehensive liability insurance and workers'
+                  compensation to protect both our clients and our team.
                 </p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader>
-                <CardTitle>How quickly can you respond to emergency situations?</CardTitle>
+                <CardTitle>
+                  How quickly can you respond to emergency situations?
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  We offer 24/7 emergency response for hazardous situations. Our team typically arrives within 1-2 hours
-                  for urgent cases, depending on current conditions and your location.
+                  We offer 24/7 emergency response for hazardous situations. Our
+                  team typically arrives within 1-2 hours for urgent cases,
+                  depending on current conditions and your location.
                 </p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader>
-                <CardTitle>Do you provide cleanup after tree services?</CardTitle>
+                <CardTitle>
+                  Do you provide cleanup after tree services?
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Absolutely. We provide complete cleanup as part of our service, including removal of branches, logs,
-                  and debris. We leave your property clean and tidy after every job.
+                  Absolutely. We provide complete cleanup as part of our
+                  service, including removal of branches, logs, and debris. We
+                  leave your property clean and tidy after every job.
                 </p>
               </CardContent>
             </Card>
@@ -345,13 +429,19 @@ export default function ContactPageClient() {
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-green-800 text-white">
         <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready for Professional Tree Care?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready for Professional Tree Care?
+          </h2>
           <p className="text-lg max-w-2xl mx-auto mb-8">
-            Contact us today for a free consultation and estimate. Our team is ready to help with all your tree care
-            needs.
+            Contact us today for a free consultation and estimate. Our team is
+            ready to help with all your tree care needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-white text-green-800 hover:bg-gray-100">
+            <Button
+              asChild
+              size="lg"
+              className="bg-white text-green-800 hover:bg-gray-100"
+            >
               <Link href="tel:5551234567">Call (555) 123-4567</Link>
             </Button>
             <Button
@@ -366,5 +456,19 @@ export default function ContactPageClient() {
         </div>
       </section>
     </>
-  )
+  );
+}
+
+function SubmitButton() {
+  const { pending } = useFormStatus();
+
+  return (
+    <Button
+      type="submit"
+      className="w-full bg-green-700 hover:bg-green-800"
+      disabled={pending}
+    >
+      {pending ? "Submitting..." : "Submit Request"}
+    </Button>
+  );
 }
