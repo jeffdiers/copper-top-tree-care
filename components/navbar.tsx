@@ -1,30 +1,37 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Menu, TreePine } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { cn } from "@/lib/utils"
-
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, TreePine } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 const routes = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
-]
+];
 
 export default function Navbar() {
-  const pathname = usePathname()
-  const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
+    <header className="sticky inset-x-0 top-0 z-50 w-full bg-background/70 backdrop-blur border-b">
+      <div className="flex h-16 items-center justify-between px-3 mx-auto">
         <Link href="/" className="flex items-center gap-2">
-          <TreePine className="h-6 w-6 text-green-700" />
-          <span className="text-xl font-bold text-green-800">Copper Top</span>
+          <Image
+            src="/logo-2.webp"
+            alt="Copper Top Tree Care"
+            width={50}
+            height={50}
+          />
+          <span className="text-xl sm:text-2xl font-bold text-primary font-logo">
+            Copper Top Tree Care
+          </span>
         </Link>
 
         <nav className="hidden md:flex gap-6">
@@ -34,7 +41,9 @@ export default function Navbar() {
               href={route.href}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-green-700",
-                pathname === route.href ? "text-green-700 font-semibold" : "text-muted-foreground",
+                pathname === route.href
+                  ? "text-green-700 font-semibold"
+                  : "text-muted-foreground"
               )}
             >
               {route.label}
@@ -63,7 +72,9 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className={cn(
                     "text-base font-medium transition-colors hover:text-green-700",
-                    pathname === route.href ? "text-green-700 font-semibold" : "text-muted-foreground",
+                    pathname === route.href
+                      ? "text-green-700 font-semibold"
+                      : "text-muted-foreground"
                   )}
                 >
                   {route.label}
@@ -79,5 +90,5 @@ export default function Navbar() {
         </Sheet>
       </div>
     </header>
-  )
+  );
 }

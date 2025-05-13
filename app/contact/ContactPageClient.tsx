@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -21,34 +22,33 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { submitContactForm } from "@/app/api/contact/action";
 import { useFormStatus } from "react-dom";
+import { Toaster } from "sonner";
 
 export default function ContactPageClient() {
-  const { toast } = useToast();
   const [formState, setFormState] = useState<{
     message: string;
     success: boolean;
   } | null>(null);
 
   async function clientAction(formData: FormData) {
+    // Show loading toast
+    const loadingToast = toast.loading("Submitting form...");
     const result = await submitContactForm(formData);
+    toast.dismiss(loadingToast);
     setFormState(result);
 
-    toast({
-      title: result.success
-        ? "Form submitted successfully"
-        : "Form submission error",
-      description: result.message,
-      variant: result.success ? "default" : "destructive",
-    });
-
     if (result.success) {
+      toast.success("Form submitted successfully, we'll get back to you soon.");
       // Reset form on success
       const form = document.getElementById("contact-form") as HTMLFormElement;
       form?.reset();
+    } else {
+      toast.error("Form submission error, please try again.");
+      console.error(result.message);
     }
   }
 
@@ -225,7 +225,11 @@ export default function ContactPageClient() {
 
                   {formState && (
                     <div
-                      className={`mt-4 p-4 rounded-md ${formState.success ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"}`}
+                      className={`mt-4 p-4 rounded-md ${
+                        formState.success
+                          ? "bg-green-50 text-green-700"
+                          : "bg-red-50 text-red-700"
+                      }`}
                     >
                       {formState.message}
                     </div>
@@ -455,6 +459,8 @@ export default function ContactPageClient() {
           </div>
         </div>
       </section>
+
+      <Toaster richColors />
     </>
   );
 }

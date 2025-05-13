@@ -1,31 +1,44 @@
-import Link from "next/link"
-import { TreePine, Phone, Mail, MapPin, Facebook, Instagram, Twitter } from "lucide-react"
+import Link from "next/link";
+import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import { links } from "@/lib/links";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="bg-green-50 border-t">
       <div className="container py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 xl:grid-cols-4 gap-8 items-center">
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <TreePine className="h-6 w-6 text-green-700" />
-              <span className="text-xl font-bold text-green-800">Copper Top</span>
+            <div className="flex items-center ml-6">
+              <Image
+                src="/logo.webp"
+                alt="Copper Top Tree Care"
+                width={120}
+                height={120}
+              />
             </div>
             <p className="text-muted-foreground">
-              Professional tree services with over 15 years of experience. Licensed and insured.
+              Professional tree services with over 15 years of experience.
+              Licensed and insured.
             </p>
             <div className="flex space-x-4">
-              <Link href="#" className="text-muted-foreground hover:text-green-700">
+              <Link
+                href={links.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-green-700"
+              >
                 <Facebook className="h-5 w-5" />
                 <span className="sr-only">Facebook</span>
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-green-700">
+              <Link
+                href={links.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-green-700"
+              >
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-green-700">
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
               </Link>
             </div>
           </div>
@@ -34,22 +47,34 @@ export default function Footer() {
             <h3 className="font-semibold text-lg mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/services#tree-trimming" className="text-muted-foreground hover:text-green-700">
+                <Link
+                  href="/services#tree-trimming"
+                  className="text-muted-foreground hover:text-green-700"
+                >
                   Tree Trimming
                 </Link>
               </li>
               <li>
-                <Link href="/services#tree-removal" className="text-muted-foreground hover:text-green-700">
+                <Link
+                  href="/services#tree-removal"
+                  className="text-muted-foreground hover:text-green-700"
+                >
                   Tree Removal
                 </Link>
               </li>
               <li>
-                <Link href="/services#stump-grinding" className="text-muted-foreground hover:text-green-700">
+                <Link
+                  href="/services#stump-grinding"
+                  className="text-muted-foreground hover:text-green-700"
+                >
                   Stump Grinding
                 </Link>
               </li>
               <li>
-                <Link href="/services#emergency" className="text-muted-foreground hover:text-green-700">
+                <Link
+                  href="/services#emergency"
+                  className="text-muted-foreground hover:text-green-700"
+                >
                   Emergency Services
                 </Link>
               </li>
@@ -60,22 +85,34 @@ export default function Footer() {
             <h3 className="font-semibold text-lg mb-4">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-muted-foreground hover:text-green-700">
+                <Link
+                  href="/about"
+                  className="text-muted-foreground hover:text-green-700"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-muted-foreground hover:text-green-700">
+                <Link
+                  href="/contact"
+                  className="text-muted-foreground hover:text-green-700"
+                >
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-muted-foreground hover:text-green-700">
+                <Link
+                  href="/privacy"
+                  className="text-muted-foreground hover:text-green-700"
+                >
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-muted-foreground hover:text-green-700">
+                <Link
+                  href="/terms"
+                  className="text-muted-foreground hover:text-green-700"
+                >
                   Terms of Service
                 </Link>
               </li>
@@ -85,20 +122,20 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-lg mb-4">Contact</h3>
             <ul className="space-y-3">
-              <li className="flex items-start gap-2">
+              <li className="flex items-start gap-2 w-fit">
                 <Phone className="h-5 w-5 text-green-700 mt-0.5" />
-                <span>(555) 123-4567</span>
+                <span>(224) 406-1182</span>
               </li>
-              <li className="flex items-start gap-2">
+              <li className="flex items-start gap-2 overflow-visible w-fit">
                 <Mail className="h-5 w-5 text-green-700 mt-0.5" />
-                <span>info@coppertoptree.com</span>
+                <span>coppertoptreecarellc@gmail.com</span>
               </li>
-              <li className="flex items-start gap-2">
+              <li className="flex items-start gap-2 w-fit">
                 <MapPin className="h-5 w-5 text-green-700 mt-0.5" />
                 <span>
-                  123 Main Street
+                  2337 Teller St
                   <br />
-                  Anytown, USA 12345
+                  Lakewood, CO 80214
                 </span>
               </li>
             </ul>
@@ -106,9 +143,12 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-6 border-t border-border text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Copper Top Tree Services. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Copper Top Tree Care LLC. All
+            rights reserved.
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

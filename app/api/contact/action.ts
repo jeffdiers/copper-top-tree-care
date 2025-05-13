@@ -1,7 +1,13 @@
 "use server";
 
 import { z } from "zod";
+import { Resend } from "resend";
 import { supabase } from "@/lib/supabase";
+import { CustomerConfirmationEmail } from "@/components/emails/customer-confirmation";
+import { AdminNotificationEmail } from "@/components/emails/admin-notification";
+
+// Initialize Resend with your API key
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Define validation schema
 const contactFormSchema = z.object({
@@ -56,8 +62,44 @@ export async function submitContactForm(formData: FormData) {
       throw new Error("Failed to store submission in database");
     }
 
-    // In a production environment, you would send email notifications here
-    // using a service like Resend, SendGrid, or Mailgun
+    // Send notification email to admin
+    try {
+      await resend.emails.send({
+        from: "Copper Top Tree Care <contact@coppertoptreecare.com>", // verified domain
+        to: "coppertoptreecarellc@gmail.com", // business email
+        subject: `New Quote Request: ${validatedData.serviceType}`,
+        react: AdminNotificationEmail({
+          firstName: validatedData.firstName,
+          lastName: validatedData.lastName,
+          email: validatedData.email,
+          phone: validatedData.phone,
+          address: validatedData.address,
+          serviceType: validatedData.serviceType,
+          timeframe: validatedData.timeframe,
+          message: validatedData.message || "No message provided",
+        }),
+      });
+    } catch (emailError) {
+      console.error("Admin email error:", emailError);
+      // Continue even if admin email fails - we've stored the submission
+    }
+
+    // Send confirmation email to customer
+    try {
+      await resend.emails.send({
+        from: "Copper Top Tree Care <contact@coppertoptreecare.com>", // verified domain
+        to: validatedData.email,
+        replyTo: "coppertoptreecarellc@gmail.com",
+        subject: "Thank you for contacting Copper Top Tree Care",
+        react: CustomerConfirmationEmail({
+          firstName: validatedData.firstName,
+          serviceType: validatedData.serviceType,
+        }),
+      });
+    } catch (emailError) {
+      console.error("Customer email error:", emailError);
+      // Continue even if customer email fails - we've stored the submission
+    }
 
     // Return success response
     return {

@@ -1,13 +1,26 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import Navbar from "@/components/navbar"
-import Footer from "@/components/footer"
-import { ThemeProvider } from "@/components/theme-provider"
-import SchemaMarkup from "@/components/schema-markup"
+import type React from "react";
+import type { Metadata } from "next";
+import { Cardo, Sedan_SC, Montserrat } from "next/font/google";
+import "./globals.css";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import { ThemeProvider } from "@/components/theme-provider";
+import SchemaMarkup from "@/components/schema-markup";
 
-const inter = Inter({ subsets: ["latin"] })
+const cardo = Cardo({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-cardo",
+});
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
+const sedan_sc = Sedan_SC({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-sedan-sc",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -16,7 +29,14 @@ export const metadata: Metadata = {
   },
   description:
     "Professional tree services including trimming, removal, stump grinding, and emergency services in your local area.",
-  keywords: ["tree service", "tree removal", "tree trimming", "stump grinding", "arborist", "emergency tree service"],
+  keywords: [
+    "tree service",
+    "tree removal",
+    "tree trimming",
+    "stump grinding",
+    "arborist",
+    "emergency tree service",
+  ],
   authors: [{ name: "Copper Top Tree Services" }],
   creator: "Copper Top Tree Services",
   openGraph: {
@@ -38,18 +58,25 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-    generator: 'v0.dev'
-}
+  generator: "v0.dev",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+      <body
+        className={`${montserrat.variable} ${cardo.variable} ${sedan_sc.variable}`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
           <div className="flex min-h-screen flex-col">
             <Navbar />
             <main className="flex-1">{children}</main>
@@ -59,5 +86,5 @@ export default function RootLayout({
         <SchemaMarkup />
       </body>
     </html>
-  )
+  );
 }
