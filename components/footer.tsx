@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
-import { links } from "@/lib/links";
+import { siteConfig } from "@/lib/siteConfig";
 import Image from "next/image";
 
 export default function Footer() {
@@ -23,7 +23,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <Link
-                href={links.facebook}
+                href={siteConfig.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-green-700"
@@ -32,7 +32,7 @@ export default function Footer() {
                 <span className="sr-only">Facebook</span>
               </Link>
               <Link
-                href={links.instagram}
+                href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-green-700"
@@ -124,18 +124,16 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 w-fit">
                 <Phone className="h-5 w-5 text-green-700 mt-0.5" />
-                <span>(224) 406-1182</span>
+                <span>{siteConfig.phoneFormatted}</span>
               </li>
               <li className="flex items-start gap-2 overflow-visible w-fit">
                 <Mail className="h-5 w-5 text-green-700 mt-0.5" />
-                <span>coppertoptreecarellc@gmail.com</span>
+                <span>{siteConfig.email}</span>
               </li>
               <li className="flex items-start gap-2 w-fit">
                 <MapPin className="h-5 w-5 text-green-700 mt-0.5" />
                 <span>
-                  2337 Teller St
-                  <br />
-                  Lakewood, CO 80214
+                  {siteConfig.address.city}, {siteConfig.address.state}
                 </span>
               </li>
             </ul>
@@ -144,8 +142,8 @@ export default function Footer() {
 
         <div className="mt-12 pt-6 border-t border-border text-center text-sm text-muted-foreground">
           <p>
-            &copy; {new Date().getFullYear()} Copper Top Tree Care LLC. All
-            rights reserved.
+            &copy; {new Date().getFullYear()} {siteConfig.name} LLC. All rights
+            reserved.
           </p>
         </div>
       </div>

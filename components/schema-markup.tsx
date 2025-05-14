@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/siteConfig";
+
 export default function SchemaMarkup() {
   return (
     <script
@@ -8,27 +10,27 @@ export default function SchemaMarkup() {
           "@graph": [
             {
               "@type": "LocalBusiness",
-              "@id": "https://coppertoptreecare.com/#organization",
-              name: "Copper Top Tree Care",
-              url: "https://coppertoptreecare.com",
-              logo: "https://coppertoptreecare.com/logo.webp",
-              image: "https://coppertoptreecare.com/images/storefront.jpg",
+              "@id": `${siteConfig.url}/#organization`,
+              name: siteConfig.name,
+              url: siteConfig.url,
+              logo: `${siteConfig.url}/logo.webp`,
+              image: `${siteConfig.url}/images/storefront.jpg`,
               description:
                 "Professional tree services including trimming, removal, stump grinding, and emergency services in your local area.",
-              telephone: "(224) 406-1182",
-              email: "coppertoptreecarellc@gmail.com",
+              telephone: siteConfig.phoneFormatted,
+              email: siteConfig.email,
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "2337 Teller St",
-                addressLocality: "Lakewood",
-                addressRegion: "CO",
-                postalCode: "80214",
+                streetAddress: siteConfig.address.street,
+                addressLocality: siteConfig.address.city,
+                addressRegion: siteConfig.address.state,
+                postalCode: siteConfig.address.zip,
                 addressCountry: "US",
               },
               geo: {
                 "@type": "GeoCoordinates",
-                latitude: 39.75047,
-                longitude: -105.07619,
+                latitude: siteConfig.geo.latitude,
+                longitude: siteConfig.geo.longitude,
               },
               openingHoursSpecification: [
                 {
@@ -50,10 +52,7 @@ export default function SchemaMarkup() {
                   closes: "16:00",
                 },
               ],
-              sameAs: [
-                "https://www.facebook.com/people/CopperTop/61574766502635/",
-                "https://www.instagram.com/coppertoptrees?igsh=NTJmZ2M1eTJxZWp3",
-              ],
+              sameAs: [siteConfig.social.facebook, siteConfig.social.instagram],
               priceRange: "$$",
             },
             {
@@ -62,14 +61,14 @@ export default function SchemaMarkup() {
               description:
                 "Safe and efficient removal of trees of any size, including in tight spaces and hazardous conditions.",
               provider: {
-                "@id": "https://coppertoptreecare.com/#organization",
+                "@id": `${siteConfig.url}/#organization`,
               },
               areaServed: {
                 "@type": "GeoCircle",
                 geoMidpoint: {
                   "@type": "GeoCoordinates",
-                  latitude: 39.75047,
-                  longitude: -105.07619,
+                  latitude: siteConfig.geo.latitude,
+                  longitude: siteConfig.geo.longitude,
                 },
                 geoRadius: "50000",
               },
@@ -107,14 +106,14 @@ export default function SchemaMarkup() {
               description:
                 "Professional pruning to improve tree health, appearance, and safety while promoting proper growth.",
               provider: {
-                "@id": "https://coppertoptreecare.com/#organization",
+                "@id": `${siteConfig.url}/#organization`,
               },
               areaServed: {
                 "@type": "GeoCircle",
                 geoMidpoint: {
                   "@type": "GeoCoordinates",
-                  latitude: 39.75047,
-                  longitude: -105.07619,
+                  latitude: siteConfig.geo.latitude,
+                  longitude: siteConfig.geo.longitude,
                 },
                 geoRadius: "50000",
               },
@@ -125,14 +124,14 @@ export default function SchemaMarkup() {
               description:
                 "Complete stump removal to reclaim your yard space and prevent regrowth.",
               provider: {
-                "@id": "https://coppertoptreecare.com/#organization",
+                "@id": `${siteConfig.url}/#organization`,
               },
               areaServed: {
                 "@type": "GeoCircle",
                 geoMidpoint: {
                   "@type": "GeoCoordinates",
-                  latitude: 39.75047,
-                  longitude: -105.07619,
+                  latitude: siteConfig.geo.latitude,
+                  longitude: siteConfig.geo.longitude,
                 },
                 geoRadius: "50000",
               },

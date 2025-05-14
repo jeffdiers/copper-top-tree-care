@@ -18,9 +18,12 @@ import {
   Award,
   ShieldCheck,
 } from "lucide-react";
+import { siteConfig } from "@/lib/siteConfig";
+import mobileHero from "@/public/hero-mobile.webp";
+import desktopHero from "@/public/hero-desktop.webp";
 
 export const metadata: Metadata = {
-  title: "Professional Tree Services | Copper Top Tree Services",
+  title: `${siteConfig.name} | Professional Tree Services`,
   description:
     "Copper Top Tree Services offers professional tree trimming, removal, stump grinding, and emergency services. Licensed and insured with 15+ years of experience.",
 };
@@ -30,19 +33,33 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="relative">
-        <div className="absolute inset-0 bg-black/40 z-10" />
-        <div className="relative h-[600px]">
+        <div className="absolute inset-0 bg-black/45  z-10" />
+        <div className="relative h-[600px] w-full">
+          {/* Desktop image */}
           <Image
-            src="/placeholder.svg?height=600&width=1920"
-            alt="Copper Top Tree Services - Professional Tree Care"
+            src={desktopHero}
+            alt={`${siteConfig.name} - Professional Tree Care`}
             fill
             priority
-            className="object-cover"
+            placeholder="blur"
+            className="object-cover hidden md:block"
+            sizes="(min-width: 768px) 100vw"
+          />
+
+          {/* Mobile image */}
+          <Image
+            src={mobileHero}
+            alt={`${siteConfig.name} - Professional Tree Care`}
+            fill
+            priority
+            placeholder="blur"
+            className="object-cover block md:hidden"
+            sizes="(max-width: 767px) 100vw"
           />
         </div>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div className="container text-center text-white">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-shadow-lg">
               Professional Tree Services
             </h1>
             <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8">
@@ -50,11 +67,7 @@ export default function Home() {
               properties
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-secondary hover:bg-green-800"
-              >
+              <Button asChild size="lg" className="bg-secondary ">
                 <Link href="/contact">Get a Free Quote</Link>
               </Button>
               <Button asChild size="lg" variant="outline">
@@ -69,7 +82,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-white">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our Services
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -176,7 +189,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-green-50">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Why Choose Copper Top
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

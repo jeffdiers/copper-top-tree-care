@@ -6,7 +6,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import SchemaMarkup from "@/components/schema-markup";
-
+import { siteConfig } from "@/lib/siteConfig";
 const cardo = Cardo({
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -24,8 +24,8 @@ const sedan_sc = Sedan_SC({
 
 export const metadata: Metadata = {
   title: {
-    default: "Copper Top Tree Services | Professional Tree Care",
-    template: "%s | Copper Top Tree Services",
+    default: `${siteConfig.name} | Professional Tree Care`,
+    template: "%s | ${siteConfig.name}",
   },
   description:
     "Professional tree services including trimming, removal, stump grinding, and emergency services in your local area.",
@@ -37,20 +37,20 @@ export const metadata: Metadata = {
     "arborist",
     "emergency tree service",
   ],
-  authors: [{ name: "Copper Top Tree Services" }],
-  creator: "Copper Top Tree Services",
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://coppertoptree.com",
-    title: "Copper Top Tree Services | Professional Tree Care",
+    url: siteConfig.url,
+    title: `${siteConfig.name} | Professional Tree Care`,
     description:
       "Professional tree services including trimming, removal, stump grinding, and emergency services in your local area.",
-    siteName: "Copper Top Tree Services",
+    siteName: siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Copper Top Tree Services | Professional Tree Care",
+    title: `${siteConfig.name} | Professional Tree Care`,
     description:
       "Professional tree services including trimming, removal, stump grinding, and emergency services in your local area.",
   },

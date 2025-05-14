@@ -27,6 +27,7 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { submitContactForm } from "@/app/api/contact/action";
 import { useFormStatus } from "react-dom";
 import { Toaster } from "sonner";
+import { siteConfig } from "@/lib/siteConfig";
 
 export default function ContactPageClient() {
   const [formState, setFormState] = useState<{
@@ -251,9 +252,12 @@ export default function ContactPageClient() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">Phone</h3>
-                      <p className="text-muted-foreground">(555) 123-4567</p>
+                      <p className="text-muted-foreground">
+                        {siteConfig.phoneFormatted}
+                      </p>
                       <p className="text-sm text-muted-foreground mt-1">
-                        For emergencies, call our 24/7 hotline: (555) 987-6543
+                        For emergencies, call our 24/7 hotline:{" "}
+                        {siteConfig.phoneFormatted}
                       </p>
                     </div>
                   </div>
@@ -265,7 +269,7 @@ export default function ContactPageClient() {
                     <div>
                       <h3 className="font-semibold text-lg">Email</h3>
                       <p className="text-muted-foreground">
-                        info@coppertoptree.com
+                        {siteConfig.email}
                       </p>
                       <p className="text-sm text-muted-foreground mt-1">
                         We typically respond within 24 hours
@@ -278,11 +282,9 @@ export default function ContactPageClient() {
                       <MapPin className="h-5 w-5 text-green-700" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Office Location</h3>
+                      <h3 className="font-semibold text-lg">Location</h3>
                       <p className="text-muted-foreground">
-                        123 Main Street
-                        <br />
-                        Anytown, USA 12345
+                        {siteConfig.address.city}, {siteConfig.address.state}
                       </p>
                     </div>
                   </div>
@@ -316,13 +318,13 @@ export default function ContactPageClient() {
                   the following areas:
                 </p>
                 <ul className="grid grid-cols-2 gap-2 text-muted-foreground">
-                  <li>Anytown</li>
-                  <li>Springfield</li>
-                  <li>Riverside</li>
-                  <li>Oakville</li>
-                  <li>Maplewood</li>
-                  <li>Cedar Heights</li>
-                  <li>Pine Valley</li>
+                  <li>Denver</li>
+                  <li>{siteConfig.address.city}</li>
+                  <li>Littleton</li>
+                  <li>Arvada</li>
+                  <li>Wheat Ridge</li>
+                  <li>Westminster</li>
+                  <li>Boulder</li>
                   <li>And surrounding areas</li>
                 </ul>
                 <p className="text-sm text-muted-foreground mt-4">
@@ -446,7 +448,9 @@ export default function ContactPageClient() {
               size="lg"
               className="bg-white text-green-800 hover:bg-gray-100"
             >
-              <Link href="tel:5551234567">Call (555) 123-4567</Link>
+              <Link href={`tel:${siteConfig.phone}`}>
+                Call {siteConfig.phoneFormatted}
+              </Link>
             </Button>
             <Button
               asChild
@@ -454,7 +458,7 @@ export default function ContactPageClient() {
               variant="outline"
               className="bg-transparent text-white border-white hover:bg-white/10"
             >
-              <Link href="mailto:info@coppertoptree.com">Email Us</Link>
+              <Link href={`mailto:${siteConfig.email}`}>Email Us</Link>
             </Button>
           </div>
         </div>

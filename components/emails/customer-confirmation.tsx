@@ -1,4 +1,4 @@
-import { links } from "@/lib/links";
+import { siteConfig } from "@/lib/siteConfig";
 
 interface CustomerConfirmationEmailProps {
   firstName: string;
@@ -12,7 +12,7 @@ export function CustomerConfirmationEmail({
   return (
     <div style={container}>
       <div style={header}>
-        <h1 style={logo}>Copper Top Tree Services</h1>
+        <h1 style={logo}>{siteConfig.name}</h1>
       </div>
 
       <div style={content}>
@@ -33,7 +33,8 @@ export function CustomerConfirmationEmail({
 
         <p style={paragraph}>
           If you have any immediate questions or need emergency service, please
-          don't hesitate to call us at <strong>(555) 123-4567</strong>.
+          don't hesitate to call us at{" "}
+          <strong>{siteConfig.phoneFormatted}</strong>.
         </p>
 
         <div style={callToAction}>
@@ -45,15 +46,17 @@ export function CustomerConfirmationEmail({
 
       <div style={footer}>
         <p style={footerText}>
-          © {new Date().getFullYear()} Copper Top Tree Services. All rights
+          © {new Date().getFullYear()} {siteConfig.name} LLC. All rights
           reserved.
         </p>
-        <p style={footerText}>123 Main Street, Anytown, USA 12345</p>
+        <p style={footerText}>
+          {siteConfig.address.city}, {siteConfig.address.state}
+        </p>
         <div style={socialLinks}>
-          <a href={links.facebook} style={socialLink}>
+          <a href={siteConfig.social.facebook} style={socialLink}>
             Facebook
           </a>
-          <a href={links.instagram} style={socialLink}>
+          <a href={siteConfig.social.instagram} style={socialLink}>
             Instagram
           </a>
         </div>

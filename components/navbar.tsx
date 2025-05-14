@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { siteConfig } from "@/lib/siteConfig";
+
 const routes = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
@@ -20,7 +22,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky inset-x-0 top-0 z-50 w-full bg-background/70 backdrop-blur border-b">
+    <header className="sticky inset-x-0 top-0 z-50 w-full bg-background border-b">
       <div className="flex h-16 items-center justify-between px-3 mx-auto">
         <Link href="/" className="flex items-center gap-2">
           <Image
@@ -30,7 +32,7 @@ export default function Navbar() {
             height={50}
           />
           <span className="text-xl sm:text-2xl font-bold text-primary font-logo">
-            Copper Top Tree Care
+            {siteConfig.name}
           </span>
         </Link>
 
@@ -80,7 +82,7 @@ export default function Navbar() {
                   {route.label}
                 </Link>
               ))}
-              <Button asChild className="mt-4 bg-green-700 hover:bg-green-800">
+              <Button asChild className="mt-4 ">
                 <Link href="/contact" onClick={() => setIsOpen(false)}>
                   Get a Free Quote
                 </Link>

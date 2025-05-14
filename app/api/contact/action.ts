@@ -5,6 +5,7 @@ import { Resend } from "resend";
 import { supabase } from "@/lib/supabase";
 import { CustomerConfirmationEmail } from "@/components/emails/customer-confirmation";
 import { AdminNotificationEmail } from "@/components/emails/admin-notification";
+import { siteConfig } from "@/lib/siteConfig";
 
 // Initialize Resend with your API key
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -65,8 +66,8 @@ export async function submitContactForm(formData: FormData) {
     // Send notification email to admin
     try {
       await resend.emails.send({
-        from: "Copper Top Tree Care <contact@coppertoptreecare.com>", // verified domain
-        to: "coppertoptreecarellc@gmail.com", // business email
+        from: `${siteConfig.name} <${siteConfig.siteEmail}>`, // verified domain
+        to: siteConfig.email, // business email
         subject: `New Quote Request: ${validatedData.serviceType}`,
         react: AdminNotificationEmail({
           firstName: validatedData.firstName,
@@ -87,9 +88,9 @@ export async function submitContactForm(formData: FormData) {
     // Send confirmation email to customer
     try {
       await resend.emails.send({
-        from: "Copper Top Tree Care <contact@coppertoptreecare.com>", // verified domain
+        from: `${siteConfig.name} <${siteConfig.siteEmail}>`, // verified domain
         to: validatedData.email,
-        replyTo: "coppertoptreecarellc@gmail.com",
+        replyTo: siteConfig.email,
         subject: "Thank you for contacting Copper Top Tree Care",
         react: CustomerConfirmationEmail({
           firstName: validatedData.firstName,
