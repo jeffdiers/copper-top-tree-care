@@ -33,7 +33,7 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="relative">
-        <div className="absolute inset-0 bg-black/45  z-10" />
+        <div className="absolute inset-0 bg-black/45 z-10" />
         <div className="relative h-[600px] w-full">
           {/* Desktop image */}
           <Image
@@ -42,7 +42,7 @@ export default function Home() {
             fill
             priority
             placeholder="blur"
-            className="object-cover hidden md:block"
+            className="object-top object-cover hidden md:block"
             sizes="(min-width: 768px) 100vw"
           />
 
@@ -53,7 +53,7 @@ export default function Home() {
             fill
             priority
             placeholder="blur"
-            className="object-cover block md:hidden"
+            className="object-top object-cover  block md:hidden"
             sizes="(max-width: 767px) 100vw"
           />
         </div>
@@ -70,7 +70,7 @@ export default function Home() {
               <Button asChild size="lg" className="bg-secondary ">
                 <Link href="/contact">Get a Free Quote</Link>
               </Button>
-              <Button asChild size="lg" variant="outline">
+              <Button asChild size="lg" variant="accent">
                 <Link href="/services">Our Services</Link>
               </Button>
             </div>
@@ -80,7 +80,7 @@ export default function Home() {
 
       {/* Services Overview */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="container">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our Services

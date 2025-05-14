@@ -7,6 +7,7 @@ import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import SchemaMarkup from "@/components/schema-markup";
 import { siteConfig } from "@/lib/siteConfig";
+
 const cardo = Cardo({
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -25,7 +26,7 @@ const sedan_sc = Sedan_SC({
 export const metadata: Metadata = {
   title: {
     default: `${siteConfig.name} | Professional Tree Care`,
-    template: "%s | ${siteConfig.name}",
+    template: `%s | ${siteConfig.name}`,
   },
   description:
     "Professional tree services including trimming, removal, stump grinding, and emergency services in your local area.",
@@ -59,6 +60,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   generator: "v0.dev",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

@@ -9,6 +9,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { siteConfig } from "@/lib/siteConfig";
+import { Separator } from "@/components/ui/separator";
 
 const routes = [
   { href: "/", label: "Home" },
@@ -23,20 +24,20 @@ export default function Navbar() {
 
   return (
     <header className="sticky inset-x-0 top-0 z-50 w-full bg-background border-b">
-      <div className="flex h-16 items-center justify-between px-3 mx-auto">
-        <Link href="/" className="flex items-center gap-2">
+      <div className="flex items-center h-16 px-3 ">
+        <Link href="/" className="flex items-center gap-2 ">
           <Image
-            src="/logo-2.webp"
+            src="/logo.webp"
             alt="Copper Top Tree Care"
             width={50}
             height={50}
           />
-          <span className="text-xl sm:text-2xl font-bold text-primary font-logo">
+          <span className="text-xl font-bold text-primary font-logo">
             {siteConfig.name}
           </span>
         </Link>
 
-        <nav className="hidden md:flex gap-6">
+        <nav className="hidden md:flex gap-6 absolute left-1/2 -translate-x-1/2">
           {routes.map((route) => (
             <Link
               key={route.href}
@@ -44,7 +45,7 @@ export default function Navbar() {
               className={cn(
                 "text-sm font-medium transition-colors hover:text-green-700",
                 pathname === route.href
-                  ? "text-green-700 font-semibold"
+                  ? "text-green-700 font-semibold underline underline-offset-4"
                   : "text-muted-foreground"
               )}
             >
@@ -53,14 +54,20 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
-          <Button asChild className="bg-green-700 hover:bg-green-800">
+        <div className="hidden md:block absolute right-0 pr-4">
+          <Button
+            asChild
+            variant="secondary"
+            animate="pulse"
+            size="sm"
+            className="rounded-full"
+          >
             <Link href="/contact">Get a Free Quote</Link>
           </Button>
         </div>
 
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild className="md:hidden">
+          <SheetTrigger asChild className="md:hidden absolute right-0 mr-4">
             <Button variant="outline" size="icon" aria-label="Menu">
               <Menu className="h-5 w-5" />
             </Button>

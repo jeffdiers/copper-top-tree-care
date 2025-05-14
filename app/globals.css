@@ -5,7 +5,7 @@
 @plugin "tailwindcss-animate";
 
 :root {
-  --radius: 1rem;
+  --radius: 0.75rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
@@ -115,6 +115,7 @@
   --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-slide-up: slide-up 0.7s ease-out;
   --animate-slide-down: slide-down 0.7s ease-out;
+  --animate-pulse: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1);
 
   @keyframes accordion-down {
     from {
@@ -131,6 +132,13 @@
     }
     to {
       height: 0;
+    }
+  }
+
+  @keyframes pulse {
+    50% {
+      opacity: 0.5;
+      transform: scale(1.05);
     }
   }
 }

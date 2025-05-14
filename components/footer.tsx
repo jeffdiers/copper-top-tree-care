@@ -6,40 +6,16 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="bg-green-50 border-t">
-      <div className="container py-12 md:py-16">
-        <div className="grid grid-cols-1 xl:grid-cols-4 gap-8 items-center">
+      <div className="max-w-7xl p-16 lg:p-4 lg:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_1fr_1fr] gap-8 ">
           <div className="space-y-4">
-            <div className="flex items-center ml-6">
+            <div className="flex items-center pr-4">
               <Image
                 src="/logo.webp"
                 alt="Copper Top Tree Care"
-                width={120}
-                height={120}
+                width={200}
+                height={200}
               />
-            </div>
-            <p className="text-muted-foreground">
-              Professional tree services with over 15 years of experience.
-              Licensed and insured.
-            </p>
-            <div className="flex space-x-4">
-              <Link
-                href={siteConfig.social.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-green-700"
-              >
-                <Facebook className="h-5 w-5" />
-                <span className="sr-only">Facebook</span>
-              </Link>
-              <Link
-                href={siteConfig.social.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-green-700"
-              >
-                <Instagram className="h-5 w-5" />
-                <span className="sr-only">Instagram</span>
-              </Link>
             </div>
           </div>
 
@@ -123,20 +99,41 @@ export default function Footer() {
             <h3 className="font-semibold text-lg mb-4">Contact</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 w-fit">
-                <Phone className="h-5 w-5 text-green-700 mt-0.5" />
+                <Phone className="h-5 w-5 text-secondary mt-0.5" />
                 <span>{siteConfig.phoneFormatted}</span>
               </li>
               <li className="flex items-start gap-2 overflow-visible w-fit">
-                <Mail className="h-5 w-5 text-green-700 mt-0.5" />
+                <Mail className="h-5 w-5 text-secondary mt-0.5" />
                 <span>{siteConfig.email}</span>
               </li>
               <li className="flex items-start gap-2 w-fit">
-                <MapPin className="h-5 w-5 text-green-700 mt-0.5" />
+                <MapPin className="h-5 w-5 text-secondary mt-0.5" />
                 <span>
                   {siteConfig.address.city}, {siteConfig.address.state}
                 </span>
               </li>
             </ul>
+
+            <div className="flex space-x-4 mt-4 border-t border-border pt-4">
+              <Link
+                href={siteConfig.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary hover:text-green-700"
+              >
+                <Facebook className="h-5 w-5" />
+                <span className="sr-only">Facebook</span>
+              </Link>
+              <Link
+                href={siteConfig.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary hover:text-green-700"
+              >
+                <Instagram className="h-5 w-5" />
+                <span className="sr-only">Instagram</span>
+              </Link>
+            </div>
           </div>
         </div>
 
