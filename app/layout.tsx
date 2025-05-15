@@ -1,6 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Cardo, Sedan_SC, Montserrat } from "next/font/google";
+import { Cardo, Montserrat, Castoro, Caprasimo } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
@@ -17,10 +17,15 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
 });
-const sedan_sc = Sedan_SC({
+const castoro = Castoro({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-sedan-sc",
+  variable: "--font-castoro",
+});
+const caprasimo = Caprasimo({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-caprasimo",
 });
 
 export const metadata: Metadata = {
@@ -73,7 +78,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${montserrat.variable} ${cardo.variable} ${sedan_sc.variable}`}
+        className={`${montserrat.variable} ${cardo.variable} ${castoro.variable} ${caprasimo.variable}`}
       >
         <ThemeProvider
           attribute="class"

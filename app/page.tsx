@@ -67,7 +67,7 @@ export default function Home() {
               properties
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-secondary ">
+              <Button asChild size="lg" variant="secondary">
                 <Link href="/contact">Get a Free Quote</Link>
               </Button>
               <Button asChild size="lg" variant="accent">
@@ -178,7 +178,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <Button asChild className="bg-secondary hover:bg-green-800">
+            <Button asChild variant="secondary">
               <Link href="/services">View All Services</Link>
             </Button>
           </div>

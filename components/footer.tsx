@@ -1,12 +1,20 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Facebook,
+  Instagram,
+  HeartHandshake,
+  Heart,
+} from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
 import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className="bg-green-50 border-t">
-      <div className="max-w-7xl p-16 lg:p-4 lg:py-16">
+      <div className="container py-6 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_1fr_1fr] gap-8 ">
           <div className="space-y-4">
             <div className="flex items-center pr-4">
@@ -140,7 +148,14 @@ export default function Footer() {
         <div className="mt-12 pt-6 border-t border-border text-center text-sm text-muted-foreground">
           <p>
             &copy; {new Date().getFullYear()} {siteConfig.name} LLC. All rights
-            reserved.
+            reserved. |{" "}
+            <span className="font-caprasimo text-xs">
+              <HeartHandshake className="h-4 w-4 inline-block mr-1" />
+              Site by{" "}
+              <Link href={siteConfig.devSite} className="underline">
+                jeffdiers.com
+              </Link>
+            </span>
           </p>
         </div>
       </div>

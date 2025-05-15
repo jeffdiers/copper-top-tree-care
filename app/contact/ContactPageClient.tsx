@@ -14,13 +14,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
@@ -192,23 +185,41 @@ export default function ContactPageClient() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="timeframe">Timeframe</Label>
-                      <Select name="timeframe" defaultValue="asap">
-                        <SelectTrigger>
-                          <SelectValue placeholder="When do you need service?" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="asap">
-                            As Soon As Possible
-                          </SelectItem>
-                          <SelectItem value="1-week">Within 1 Week</SelectItem>
-                          <SelectItem value="2-weeks">
-                            Within 2 Weeks
-                          </SelectItem>
-                          <SelectItem value="month">Within a Month</SelectItem>
-                          <SelectItem value="flexible">Flexible</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      <Label>How would you like to meet?</Label>
+                      <input
+                        type="hidden"
+                        name="meetingType"
+                        id="meetingType"
+                        value="stop-by"
+                      />
+                      <RadioGroup
+                        defaultValue="stop-by"
+                        className="grid grid-cols-2 gap-2"
+                        onValueChange={(value) => {
+                          document
+                            .getElementById("meetingType")
+                            ?.setAttribute("value", value);
+                        }}
+                      >
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="stop-by" id="stop-by" />
+                          <Label htmlFor="stop-by" className="cursor-pointer">
+                            Stop by anytime
+                          </Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="call" id="call" />
+                          <Label htmlFor="call" className="cursor-pointer">
+                            Call me
+                          </Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="email" id="email" />
+                          <Label htmlFor="email" className="cursor-pointer">
+                            Email
+                          </Label>
+                        </div>
+                      </RadioGroup>
                     </div>
 
                     <div className="space-y-2">

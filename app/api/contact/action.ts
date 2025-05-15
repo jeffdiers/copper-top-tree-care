@@ -18,7 +18,7 @@ const contactFormSchema = z.object({
   phone: z.string().min(10, "Phone number is required"),
   address: z.string().min(1, "Address is required"),
   serviceType: z.string().min(1, "Service type is required"),
-  timeframe: z.string().min(1, "Timeframe is required"),
+  meetingType: z.string().min(1, "Meeting type is required"),
   message: z.string().optional(),
 });
 
@@ -34,7 +34,7 @@ export async function submitContactForm(formData: FormData) {
       phone: formData.get("phone") as string,
       address: formData.get("address") as string,
       serviceType: formData.get("serviceType") as string,
-      timeframe: formData.get("timeframe") as string,
+      meetingType: formData.get("meetingType") as string,
       message: formData.get("message") as string,
     };
 
@@ -52,7 +52,7 @@ export async function submitContactForm(formData: FormData) {
           phone: validatedData.phone,
           address: validatedData.address,
           service_type: validatedData.serviceType,
-          timeframe: validatedData.timeframe,
+          meeting_type: validatedData.meetingType,
           message: validatedData.message || "",
           status: "new",
         },
@@ -67,7 +67,7 @@ export async function submitContactForm(formData: FormData) {
     try {
       await resend.emails.send({
         from: `${siteConfig.name} <${siteConfig.siteEmail}>`, // verified domain
-        to: siteConfig.email, // business email
+        to: [siteConfig.devEmail, siteConfig.email], // business email
         subject: `New Quote Request: ${validatedData.serviceType}`,
         react: AdminNotificationEmail({
           firstName: validatedData.firstName,
@@ -76,7 +76,7 @@ export async function submitContactForm(formData: FormData) {
           phone: validatedData.phone,
           address: validatedData.address,
           serviceType: validatedData.serviceType,
-          timeframe: validatedData.timeframe,
+          meetingType: validatedData.meetingType,
           message: validatedData.message || "No message provided",
         }),
       });

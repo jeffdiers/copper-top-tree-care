@@ -2,6 +2,8 @@ export const siteConfig = {
   name: "Copper Top Tree Care",
   email: "coppertoptreecarellc@gmail.com",
   siteEmail: "contact@coppertoptreecare.com",
+  devEmail: "jeff.diers@gmail.com",
+  devSite: "https://jeffdiers.com/",
   phone: "7207729601",
   phoneFormatted: "(720) 772-9601",
   url: "https://coppertoptreecare.com",

@@ -25,12 +25,12 @@ export default function Navbar() {
   return (
     <header className="sticky inset-x-0 top-0 z-50 w-full bg-background border-b">
       <div className="flex items-center h-16 px-3 ">
-        <Link href="/" className="flex items-center gap-2 ">
+        <Link href="/" className="flex items-center gap-2">
           <Image
             src="/logo.webp"
             alt="Copper Top Tree Care"
-            width={50}
-            height={50}
+            width={60}
+            height={60}
           />
           <span className="text-xl font-bold text-primary font-logo">
             {siteConfig.name}
@@ -55,13 +55,7 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden md:block absolute right-0 pr-4">
-          <Button
-            asChild
-            variant="secondary"
-            animate="pulse"
-            size="sm"
-            className="rounded-full"
-          >
+          <Button asChild animate="pulse" size="sm" className="rounded-full">
             <Link href="/contact">Get a Free Quote</Link>
           </Button>
         </div>

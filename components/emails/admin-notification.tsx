@@ -44,8 +44,8 @@ export function AdminNotificationEmail(data: ContactFormData) {
               <td style={valueCell}>{data.serviceType}</td>
             </tr>
             <tr>
-              <td style={labelCell}>Timeframe:</td>
-              <td style={valueCell}>{data.timeframe}</td>
+              <td style={labelCell}>Meeting Type:</td>
+              <td style={valueCell}>{data.meetingType}</td>
             </tr>
             <tr>
               <td style={labelCell}>Message:</td>
