@@ -266,10 +266,6 @@ export default function ContactPageClient() {
                       <p className="text-muted-foreground">
                         {siteConfig.phoneFormatted}
                       </p>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        For emergencies, call our 24/7 hotline:{" "}
-                        {siteConfig.phoneFormatted}
-                      </p>
                     </div>
                   </div>
 
@@ -314,9 +310,6 @@ export default function ContactPageClient() {
                         <p>Sunday:</p>
                         <p>Closed</p>
                       </div>
-                      <p className="text-sm text-muted-foreground mt-2">
-                        Emergency services available 24/7
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -413,14 +406,16 @@ export default function ContactPageClient() {
             <Card>
               <CardHeader>
                 <CardTitle>
-                  How quickly can you respond to emergency situations?
+                  How long does a typical tree removal take?
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  We offer 24/7 emergency response for hazardous situations. Our
-                  team typically arrives within 1-2 hours for urgent cases,
-                  depending on current conditions and your location.
+                  Most residential tree removals can be completed in a single
+                  day, often in just a few hours. However, larger trees, complex
+                  situations, or properties with access challenges may require
+                  additional time. During your estimate, we can provide a more
+                  specific timeframe for your particular project.
                 </p>
               </CardContent>
             </Card>

@@ -160,15 +160,15 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
                   <Clock className="h-6 w-6 text-secondary" />
                 </div>
-                <CardTitle>Emergency Services</CardTitle>
+                <CardTitle>Storm Recovery</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base">
-                  24/7 response for storm damage, fallen trees, and hazardous
-                  situations.
+                  Post storm cleanup and recovery services to help restore
+                  safety and beauty to your property.
                 </CardDescription>
                 <Link
-                  href="/services#emergency"
+                  href="/services#storm-recovery"
                   className="text-secondary font-medium inline-block mt-4 hover:underline"
                 >
                   Learn more

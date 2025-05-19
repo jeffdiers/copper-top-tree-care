@@ -1,16 +1,27 @@
-import Link from "next/link"
-import Image from "next/image"
-import type { Metadata } from "next"
-import { Button } from "@/components/ui/button"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Link from "next/link";
+import Image from "next/image";
+import type { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
     "Find answers to common questions about tree services, pricing, scheduling, and more from Copper Top Tree Services.",
-}
+};
 
 export default function FAQPage() {
   return (
@@ -28,8 +39,12 @@ export default function FAQPage() {
         </div>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div className="container text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h1>
-            <p className="text-xl max-w-2xl mx-auto">Find answers to common questions about our tree services</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Frequently Asked Questions
+            </h1>
+            <p className="text-xl max-w-2xl mx-auto">
+              Find answers to common questions about our tree services
+            </p>
           </div>
         </div>
       </section>
@@ -53,9 +68,13 @@ export default function FAQPage() {
                 <Accordion type="single" collapsible className="w-full">
                   {generalFAQs.map((faq, index) => (
                     <AccordionItem key={index} value={`item-${index}`}>
-                      <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                      <AccordionTrigger className="text-left">
+                        {faq.question}
+                      </AccordionTrigger>
                       <AccordionContent>
-                        <div className="pt-2 pb-4 text-muted-foreground">{faq.answer}</div>
+                        <div className="pt-2 pb-4 text-muted-foreground">
+                          {faq.answer}
+                        </div>
                       </AccordionContent>
                     </AccordionItem>
                   ))}
@@ -68,9 +87,13 @@ export default function FAQPage() {
                 <Accordion type="single" collapsible className="w-full">
                   {servicesFAQs.map((faq, index) => (
                     <AccordionItem key={index} value={`item-${index}`}>
-                      <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                      <AccordionTrigger className="text-left">
+                        {faq.question}
+                      </AccordionTrigger>
                       <AccordionContent>
-                        <div className="pt-2 pb-4 text-muted-foreground">{faq.answer}</div>
+                        <div className="pt-2 pb-4 text-muted-foreground">
+                          {faq.answer}
+                        </div>
                       </AccordionContent>
                     </AccordionItem>
                   ))}
@@ -83,9 +106,13 @@ export default function FAQPage() {
                 <Accordion type="single" collapsible className="w-full">
                   {pricingFAQs.map((faq, index) => (
                     <AccordionItem key={index} value={`item-${index}`}>
-                      <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                      <AccordionTrigger className="text-left">
+                        {faq.question}
+                      </AccordionTrigger>
                       <AccordionContent>
-                        <div className="pt-2 pb-4 text-muted-foreground">{faq.answer}</div>
+                        <div className="pt-2 pb-4 text-muted-foreground">
+                          {faq.answer}
+                        </div>
                       </AccordionContent>
                     </AccordionItem>
                   ))}
@@ -98,9 +125,13 @@ export default function FAQPage() {
                 <Accordion type="single" collapsible className="w-full">
                   {schedulingFAQs.map((faq, index) => (
                     <AccordionItem key={index} value={`item-${index}`}>
-                      <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                      <AccordionTrigger className="text-left">
+                        {faq.question}
+                      </AccordionTrigger>
                       <AccordionContent>
-                        <div className="pt-2 pb-4 text-muted-foreground">{faq.answer}</div>
+                        <div className="pt-2 pb-4 text-muted-foreground">
+                          {faq.answer}
+                        </div>
                       </AccordionContent>
                     </AccordionItem>
                   ))}
@@ -113,9 +144,13 @@ export default function FAQPage() {
                 <Accordion type="single" collapsible className="w-full">
                   {aftercareFAQs.map((faq, index) => (
                     <AccordionItem key={index} value={`item-${index}`}>
-                      <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                      <AccordionTrigger className="text-left">
+                        {faq.question}
+                      </AccordionTrigger>
                       <AccordionContent>
-                        <div className="pt-2 pb-4 text-muted-foreground">{faq.answer}</div>
+                        <div className="pt-2 pb-4 text-muted-foreground">
+                          {faq.answer}
+                        </div>
                       </AccordionContent>
                     </AccordionItem>
                   ))}
@@ -130,9 +165,12 @@ export default function FAQPage() {
       <section className="py-16 md:py-24 bg-green-50">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Need More Help?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Need More Help?
+            </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              If you couldn't find the answer you're looking for, we're here to help
+              If you couldn't find the answer you're looking for, we're here to
+              help
             </p>
           </div>
 
@@ -140,13 +178,19 @@ export default function FAQPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Contact Us</CardTitle>
-                <CardDescription>Reach out directly with your specific questions</CardDescription>
+                <CardDescription>
+                  Reach out directly with your specific questions
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4">
-                  Our customer service team is available to answer any questions you may have about our services.
+                  Our customer service team is available to answer any questions
+                  you may have about our services.
                 </p>
-                <Button asChild className="w-full bg-green-700 hover:bg-green-800">
+                <Button
+                  asChild
+                  className="w-full bg-green-700 hover:bg-green-800"
+                >
                   <Link href="/contact">Contact Us</Link>
                 </Button>
               </CardContent>
@@ -155,14 +199,19 @@ export default function FAQPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Request a Consultation</CardTitle>
-                <CardDescription>Schedule an on-site assessment with our arborists</CardDescription>
+                <CardDescription>
+                  Schedule an on-site assessment with our arborists
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4">
-                  Our certified arborists can provide personalized advice and recommendations for your specific tree
-                  care needs.
+                  Our certified arborists can provide personalized advice and
+                  recommendations for your specific tree care needs.
                 </p>
-                <Button asChild className="w-full bg-green-700 hover:bg-green-800">
+                <Button
+                  asChild
+                  className="w-full bg-green-700 hover:bg-green-800"
+                >
                   <Link href="/contact">Schedule Consultation</Link>
                 </Button>
               </CardContent>
@@ -171,14 +220,19 @@ export default function FAQPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Read Our Blog</CardTitle>
-                <CardDescription>Explore our articles for in-depth tree care information</CardDescription>
+                <CardDescription>
+                  Explore our articles for in-depth tree care information
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4">
-                  Our blog features helpful articles on tree care, maintenance tips, and industry insights that may
-                  answer your questions.
+                  Our blog features helpful articles on tree care, maintenance
+                  tips, and industry insights that may answer your questions.
                 </p>
-                <Button asChild className="w-full bg-green-700 hover:bg-green-800">
+                <Button
+                  asChild
+                  className="w-full bg-green-700 hover:bg-green-800"
+                >
                   <Link href="/blog">Visit Our Blog</Link>
                 </Button>
               </CardContent>
@@ -190,23 +244,29 @@ export default function FAQPage() {
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-green-800 text-white">
         <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready for Professional Tree Care?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready for Professional Tree Care?
+          </h2>
           <p className="text-lg max-w-2xl mx-auto mb-8">
-            Contact us today for a free consultation and estimate. Our team is ready to help with all your tree care
-            needs.
+            Contact us today for a free consultation and estimate. Our team is
+            ready to help with all your tree care needs.
           </p>
-          <Button asChild size="lg" className="bg-white text-green-800 hover:bg-gray-100">
+          <Button
+            asChild
+            size="lg"
+            className="bg-white text-green-800 hover:bg-gray-100"
+          >
             <Link href="/contact">Get Your Free Quote</Link>
           </Button>
         </div>
       </section>
     </>
-  )
+  );
 }
 
 interface FAQ {
-  question: string
-  answer: string
+  question: string;
+  answer: string;
 }
 
 const generalFAQs: FAQ[] = [
@@ -226,16 +286,16 @@ const generalFAQs: FAQ[] = [
       "Our team consists of certified arborists and trained professionals with decades of combined experience in the tree care industry. Our company has been providing professional tree services for over 15 years, and our staff undergoes regular training to stay current with industry best practices.",
   },
   {
-    question: "Do you offer emergency services?",
+    question: "Do you offer storm recovery & cleanup services?",
     answer:
-      "Yes, we provide 24/7 emergency tree services for hazardous situations such as storm damage, fallen trees, or branches threatening structures. Our emergency response team is available around the clock to address urgent tree-related issues.",
+      "Yes, we offer post-storm cleanup services to help restore safety and beauty to your property. We can remove fallen branches, debris, and trees from your property.",
   },
   {
     question: "Are you environmentally responsible?",
     answer:
       "Absolutely. We're committed to environmentally responsible practices in all aspects of our work. We properly dispose of or recycle all tree waste, use eco-friendly equipment when possible, and follow sustainable tree care practices that promote long-term environmental health.",
   },
-]
+];
 
 const servicesFAQs: FAQ[] = [
   {
@@ -263,7 +323,7 @@ const servicesFAQs: FAQ[] = [
     answer:
       "In many cases, yes. The success of treatment depends on the type of disease, how early it's caught, and the overall health of the tree. Our arborists can diagnose tree diseases and recommend appropriate treatments such as pruning infected areas, applying treatments, or improving soil conditions to help the tree recover.",
   },
-]
+];
 
 const pricingFAQs: FAQ[] = [
   {
@@ -291,7 +351,7 @@ const pricingFAQs: FAQ[] = [
     answer:
       "In some cases, yes. Tree damage caused by covered perils like storms may be included in your homeowner's insurance policy. Emergency tree removal is often covered if a tree has fallen on a structure or is blocking access. We can provide the documentation you need for insurance claims and in some cases work directly with your insurance company.",
   },
-]
+];
 
 const schedulingFAQs: FAQ[] = [
   {
@@ -314,12 +374,7 @@ const schedulingFAQs: FAQ[] = [
     answer:
       "Safety is our priority, so we may need to reschedule in cases of severe weather such as thunderstorms, high winds, or heavy rain. We'll contact you as soon as possible to reschedule for the next available day. Light rain or mild weather conditions typically don't affect our schedule.",
   },
-  {
-    question: "How quickly can you respond to emergency situations?",
-    answer:
-      "For true emergencies such as trees fallen on structures or blocking access, we typically respond within 1-2 hours. Our emergency team is available 24/7, including weekends and holidays. The exact response time may vary based on current conditions and your location.",
-  },
-]
+];
 
 const aftercareFAQs: FAQ[] = [
   {
@@ -347,4 +402,4 @@ const aftercareFAQs: FAQ[] = [
     answer:
       "The frequency depends on the tree species, age, health, and your goals for the tree. As a general guideline, most mature trees benefit from pruning every 3-5 years, while younger trees may need attention every 2-3 years to establish proper structure. Fruit trees typically need annual pruning, and some fast-growing species may need more frequent trimming.",
   },
-]
+];
