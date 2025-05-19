@@ -15,7 +15,7 @@ export default function SchemaMarkup() {
               url: siteConfig.url,
               icon: `${siteConfig.url}/icon.webp`,
               logo: `${siteConfig.url}/logo.webp`,
-              image: `${siteConfig.url}/our-team.webp`,
+              image: `${siteConfig.url}/about/our-team.webp`,
               description:
                 "Professional tree services including trimming, removal, stump grinding, and emergency services in the Denver, CO area.",
               telephone: siteConfig.phoneFormatted,
@@ -135,6 +135,25 @@ export default function SchemaMarkup() {
                   longitude: siteConfig.geo.longitude,
                 },
                 geoRadius: "50000",
+              },
+            },
+            {
+              "@type": "ContactPoint",
+              contactType: "Customer Service",
+              email: siteConfig.email,
+              url: siteConfig.url,
+              telephone: siteConfig.phoneFormatted,
+            },
+            {
+              "@type": "WebSite",
+              "@id": `${siteConfig.url}#website`,
+              url: siteConfig.url,
+              name: siteConfig.name,
+              description:
+                "Professional tree services including trimming, removal, stump grinding, and emergency services in the Denver, CO area.",
+              publisher: {
+                "@type": "Organization",
+                name: siteConfig.name,
               },
             },
           ],

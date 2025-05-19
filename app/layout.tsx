@@ -49,8 +49,8 @@ export const metadata: Metadata = {
     "colorado tree care",
     "colorado tree maintenance",
   ],
-  authors: [{ name: siteConfig.devName }],
-  creator: siteConfig.devName,
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
   openGraph: {
     type: "website",
     locale: "en_US",
