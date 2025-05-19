@@ -255,7 +255,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-center items-center gap-8">
+          <div className="flex flex-col md:flex-row justify-center items-start gap-8">
             <div className="bg-white rounded-lg overflow-hidden border border-green-100 max-w-[300px]">
               <div className="relative h-80">
                 <Image
