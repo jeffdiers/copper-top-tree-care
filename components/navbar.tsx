@@ -9,6 +9,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { siteConfig } from "@/lib/siteConfig";
+import logo from "@/public/logo.webp";
 
 const routes = [
   { href: "/", label: "Home" },
@@ -26,8 +27,8 @@ export default function Navbar() {
       <div className="flex items-center h-16 px-3 ">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/logo.webp"
-            alt="Copper Top Tree Care"
+            src={logo}
+            alt={`${siteConfig.name} logo`}
             width={60}
             height={60}
           />

@@ -6,10 +6,10 @@ import {
   Facebook,
   Instagram,
   HeartHandshake,
-  Heart,
 } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
 import Image from "next/image";
+import logo from "@/public/logo.webp";
 
 export default function Footer() {
   return (
@@ -19,8 +19,8 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center pr-4">
               <Image
-                src="/logo.webp"
-                alt="Copper Top Tree Care"
+                src={logo}
+                alt={`${siteConfig.name} logo`}
                 width={200}
                 height={200}
               />

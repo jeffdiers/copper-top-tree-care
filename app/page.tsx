@@ -38,7 +38,7 @@ export default function Home() {
           {/* Desktop image */}
           <Image
             src={desktopHero}
-            alt={`${siteConfig.name} - Professional Tree Care`}
+            alt={`${siteConfig.name} landing page hero image man trimming tree`}
             fill
             priority
             placeholder="blur"
@@ -49,7 +49,7 @@ export default function Home() {
           {/* Mobile image */}
           <Image
             src={mobileHero}
-            alt={`${siteConfig.name} - Professional Tree Care`}
+            alt={`${siteConfig.name} landing page hero image man trimming tree`}
             fill
             priority
             placeholder="blur"
@@ -108,7 +108,7 @@ export default function Home() {
                   href="/services#tree-trimming"
                   className="text-secondary font-medium inline-block mt-4 hover:underline"
                 >
-                  Learn more
+                  Learn more about tree trimming
                 </Link>
               </CardContent>
             </Card>
@@ -129,7 +129,7 @@ export default function Home() {
                   href="/services#tree-removal"
                   className="text-secondary font-medium inline-block mt-4 hover:underline"
                 >
-                  Learn more
+                  Learn more about tree removal
                 </Link>
               </CardContent>
             </Card>
@@ -150,7 +150,7 @@ export default function Home() {
                   href="/services#stump-grinding"
                   className="text-secondary font-medium inline-block mt-4 hover:underline"
                 >
-                  Learn more
+                  Learn more about stump grinding
                 </Link>
               </CardContent>
             </Card>
@@ -171,7 +171,7 @@ export default function Home() {
                   href="/services#storm-recovery"
                   className="text-secondary font-medium inline-block mt-4 hover:underline"
                 >
-                  Learn more
+                  Learn more about storm recovery
                 </Link>
               </CardContent>
             </Card>
