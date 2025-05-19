@@ -76,41 +76,36 @@ export default function AboutPage() {
                 <span>Our Story</span>
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                A Legacy of Excellence in Tree Care
+                Honesty and Integrity in Tree Care
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Founded in 2008, Copper Top Tree Services began with a simple
+                  Founded in 2024, Copper Top Tree Services began with a simple
                   mission: to provide exceptional tree care services with
                   integrity, expertise, and a commitment to customer
-                  satisfaction.
+                  satisfaction and tree health.
                 </p>
                 <p>
-                  What started as a small family operation has grown into a
-                  trusted name in the industry, serving residential and
-                  commercial clients throughout the region. Our growth is a
-                  testament to our dedication to quality work and building
-                  lasting relationships with our customers.
+                  Family owned and operated, Copper Top was started on the
+                  principle of health first approach to tree care. Trees are
+                  complex living systems, and our work is guided by a deep
+                  respect for their biology, natural growth patterns, and role
+                  in the local ecosystem
                 </p>
                 <p>
-                  Today, we continue to uphold the values that have guided us
-                  from the beginning: safety, quality, environmental
-                  responsibility, and exceptional service. Our team of certified
-                  arborists and trained professionals brings decades of combined
-                  experience to every project.
+                  We use science-based practices to support tree health,
+                  structural integrity, and longevity. Avoiding unnecessary
+                  removals and prunings that do more harm than good. Whether
+                  it's trimming, preservation, or health diagnostics, we always
+                  consider what’s best for the tree and the environment around
+                  it.
                 </p>
               </div>
               <div className="flex items-center gap-8 mt-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-green-700">15+</div>
+                  <div className="text-3xl font-bold text-green-700">10+</div>
                   <div className="text-sm text-muted-foreground">
                     Years Experience
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-green-700">1000+</div>
-                  <div className="text-sm text-muted-foreground">
-                    Happy Clients
                   </div>
                 </div>
                 <div className="text-center">
@@ -264,7 +259,7 @@ export default function AboutPage() {
             <div className="bg-white rounded-lg overflow-hidden border border-green-100 max-w-[300px]">
               <div className="relative h-80">
                 <Image
-                  alt="Rob Hansen - Owner & Senior Arborist"
+                  alt="Rob Hansen - Owner & ISA Certified Arborist RM-8738A"
                   src={rob}
                   fill
                   placeholder="blur"
@@ -275,16 +270,18 @@ export default function AboutPage() {
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-1">Rob Hansen</h3>
                 <p className="text-green-700 font-medium mb-4">
-                  Owner & Senior Arborist
+                  Owner & ISA Certified Arborist RM-8738A
                 </p>
                 <p className="text-muted-foreground mb-4">
-                  With over 20 years of experience in the tree care industry,
-                  Rob founded Copper Top Tree Services with a vision to provide
-                  exceptional service and expertise.
+                  Rob started his career in fire mitigation and forest
+                  management, gaining a deep understanding of tree health. He
+                  founded Copper Top Tree Care with a clear vision: to provide
+                  trees with the care they need and a focus on maintaining a
+                  healthy urban forest.
                 </p>
                 <div className="flex items-center gap-2">
                   <Badge variant="accent">ISA Certified</Badge>
-                  <Badge variant="accent">TCIA Member</Badge>
+                  <Badge variant="accent">Qualified Supervisor</Badge>
                 </div>
               </div>
             </div>
@@ -292,7 +289,7 @@ export default function AboutPage() {
             <div className="bg-white rounded-lg overflow-hidden border border-green-100 max-w-[300px] ">
               <div className="relative h-80">
                 <Image
-                  alt="Alec Hansen - Owner & Senior Arborist"
+                  alt="Alec Hansen - Owner & Operations Manager"
                   src={alec}
                   fill
                   placeholder="blur"
@@ -303,7 +300,7 @@ export default function AboutPage() {
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-1">Alec Hansen</h3>
                 <p className="text-green-700 font-medium mb-4">
-                  Owner & Senior Arborist
+                  Owner & Operations Manager
                 </p>
                 <p className="text-muted-foreground mb-4">
                   Alec specializes in tree health assessment and preservation,
@@ -311,8 +308,7 @@ export default function AboutPage() {
                   treatment methods to our team.
                 </p>
                 <div className="flex items-center gap-2">
-                  <Badge variant="accent">ISA Certified</Badge>
-                  <Badge variant="accent">Plant Health Care</Badge>
+                  <Badge variant="accent">Plant Health Care Technician </Badge>
                 </div>
               </div>
             </div>

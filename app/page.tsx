@@ -25,7 +25,7 @@ import desktopHero from "@/public/hero-desktop.webp";
 export const metadata: Metadata = {
   title: `${siteConfig.name} | Professional Tree Services`,
   description:
-    "Copper Top Tree Services offers professional tree trimming, removal, stump grinding, and emergency services. Licensed and insured with 15+ years of experience.",
+    "Copper Top Tree Services offers professional tree trimming, removal, stump grinding, and emergency services. Licensed and insured with 10+ years of experience.",
 };
 
 export default function Home() {
