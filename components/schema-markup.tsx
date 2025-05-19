@@ -13,8 +13,9 @@ export default function SchemaMarkup() {
               "@id": `${siteConfig.url}/#organization`,
               name: siteConfig.name,
               url: siteConfig.url,
+              icon: `${siteConfig.url}/icon.webp`,
               logo: `${siteConfig.url}/logo.webp`,
-              image: `${siteConfig.url}/images/storefront.jpg`,
+              image: `${siteConfig.url}/our-team.webp`,
               description:
                 "Professional tree services including trimming, removal, stump grinding, and emergency services in the Denver, CO area.",
               telephone: siteConfig.phoneFormatted,
