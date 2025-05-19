@@ -43,14 +43,14 @@ export const metadata: Metadata = {
     "arborist",
     "emergency tree service",
     "denver, co",
-    "denver tree service",
-    "denver tree removal",
-    "denver tree trimming",
-    "denver stump grinding",
-    "denver emergency tree service",
+    "colorado tree service",
+    "colorado tree removal",
+    "colorado tree trimming",
+    "colorado tree care",
+    "colorado tree maintenance",
   ],
-  authors: [{ name: siteConfig.name }],
-  creator: siteConfig.name,
+  authors: [{ name: siteConfig.devName }],
+  creator: siteConfig.devName,
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -65,14 +65,6 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} | Professional Tree Care`,
     description:
       "Professional tree services including trimming, removal, stump grinding, and emergency services in the Denver, CO area.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  generator: "v0.dev",
-  icons: {
-    icon: "/favicon.ico",
   },
 };
 

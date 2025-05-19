@@ -11,12 +11,12 @@ import {
   Leaf,
 } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
-import desktopHero from "@/public/about-hero-desktop.webp";
-import mobileHero from "@/public/about-hero-mobile.webp";
-import ourTeam from "@/public/our-team.webp";
 import { Badge } from "@/components/ui/badge";
-import rob from "@/public/rob.webp";
-import alec from "@/public/alec.webp";
+import desktopHero from "@/public/about/hero-desktop.webp";
+import mobileHero from "@/public/about/hero-mobile.webp";
+import ourTeam from "@/public/about/our-team.webp";
+import rob from "@/public/about/team-member-rob.webp";
+import alec from "@/public/about/team-member-alec.webp";
 
 export const metadata: Metadata = {
   title: "About Us",

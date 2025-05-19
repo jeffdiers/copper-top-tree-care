@@ -19,8 +19,12 @@ import {
   Shield,
   Sprout,
 } from "lucide-react";
-import desktopHero from "@/public/service-hero-desktop.webp";
-import mobileHero from "@/public/service-hero-mobile.webp";
+import desktopHero from "@/public/services/hero-desktop.webp";
+import mobileHero from "@/public/services/hero-mobile.webp";
+import treeTrim from "@/public/services/tree-trimming.webp";
+import treeRemoval from "@/public/services/tree-removal.webp";
+import stumpGrinding from "@/public/services/stump-grinding.webp";
+import stormRecovery from "@/public/services/storm-recovery.webp";
 import { siteConfig } from "@/lib/siteConfig";
 
 const SERVICES_DATA = [
@@ -30,7 +34,7 @@ const SERVICES_DATA = [
     icon: <Scissors className="h-5 w-5 text-green-700" />,
     description:
       "Our professional tree trimming and pruning services help maintain the health, appearance, and safety of your trees. Regular pruning removes dead or diseased branches, improves structure, and promotes healthy growth.",
-    image: "/service-tree-trimming.webp",
+    image: treeTrim,
     bullets: [
       "Crown thinning to increase light penetration and air circulation",
       "Crown raising to provide clearance for buildings, vehicles, and pedestrians",
@@ -44,7 +48,7 @@ const SERVICES_DATA = [
     icon: <Axe className="h-5 w-5 text-green-700" />,
     description:
       "When a tree is dead, diseased, damaged, or poses a safety hazard, our professional tree removal service provides a safe and efficient solution. We have the expertise and equipment to handle trees of all sizes in various locations.",
-    image: "/service-tree-removal.webp",
+    image: treeRemoval,
     bullets: [
       "Complete removal of hazardous or unwanted trees",
       "Specialized equipment for safe and efficient removal",
@@ -58,7 +62,7 @@ const SERVICES_DATA = [
     icon: <Leaf className="h-5 w-5 text-green-700" />,
     description:
       "After tree removal, the stump can be an eyesore and take up valuable space in your yard. Our stump grinding service eliminates the stump below ground level, allowing you to reclaim your yard space and prevent regrowth.",
-    image: "/service-stump-grinding.webp",
+    image: stumpGrinding,
     bullets: [
       "Complete stump removal below ground level",
       "Elimination of trip hazards and lawn mower obstacles",
@@ -72,7 +76,7 @@ const SERVICES_DATA = [
     icon: <Clock className="h-5 w-5 text-green-700" />,
     description:
       "Severe weather can leave behind fallen branches, debris, and unsafe tree conditions. We offer post-storm cleanup services to help restore safety and beauty to your property.",
-    image: "/service-storm-recovery.webp",
+    image: stormRecovery,
     bullets: [
       "Safe removal of storm-damaged trees and limbs",
       "Cleanup of fallen branches and debris",

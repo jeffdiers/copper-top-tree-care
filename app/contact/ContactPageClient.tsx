@@ -21,8 +21,8 @@ import { submitContactForm } from "@/app/api/contact/action";
 import { useFormStatus } from "react-dom";
 import { Toaster } from "sonner";
 import { siteConfig } from "@/lib/siteConfig";
-import desktopHero from "@/public/contact-hero-desktop.webp";
-import mobileHero from "@/public/contact-hero-mobile.webp";
+import desktopHero from "@/public/contact/hero-desktop.webp";
+import mobileHero from "@/public/contact/hero-mobile.webp";
 
 export default function ContactPageClient() {
   const [formState, setFormState] = useState<{
