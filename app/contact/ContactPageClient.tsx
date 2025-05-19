@@ -21,6 +21,8 @@ import { submitContactForm } from "@/app/api/contact/action";
 import { useFormStatus } from "react-dom";
 import { Toaster } from "sonner";
 import { siteConfig } from "@/lib/siteConfig";
+import desktopHero from "@/public/contact-hero-desktop.webp";
+import mobileHero from "@/public/contact-hero-mobile.webp";
 
 export default function ContactPageClient() {
   const [formState, setFormState] = useState<{
@@ -52,11 +54,26 @@ export default function ContactPageClient() {
       <section className="relative">
         <div className="absolute inset-0 bg-black/40 z-10" />
         <div className="relative h-[400px]">
+          {/* Desktop image */}
           <Image
-            src="/placeholder.svg?height=400&width=1920"
-            alt="Contact Copper Top Tree Services"
+            src={desktopHero}
+            alt={`${siteConfig.name} - Contact Us`}
             fill
-            className="object-cover"
+            priority
+            placeholder="blur"
+            className="object-cover hidden md:block"
+            sizes="(min-width: 768px) 100vw"
+          />
+
+          {/* Mobile image */}
+          <Image
+            src={mobileHero}
+            alt={`${siteConfig.name} - Contact Us`}
+            fill
+            priority
+            placeholder="blur"
+            className="object-cover block md:hidden"
+            sizes="(max-width: 767px) 100vw"
           />
         </div>
         <div className="absolute inset-0 z-20 flex items-center justify-center">

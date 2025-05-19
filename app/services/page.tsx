@@ -19,6 +19,9 @@ import {
   Shield,
   Sprout,
 } from "lucide-react";
+import desktopHero from "@/public/service-hero-desktop.webp";
+import mobileHero from "@/public/service-hero-mobile.webp";
+import { siteConfig } from "@/lib/siteConfig";
 
 const SERVICES_DATA = [
   {
@@ -82,7 +85,7 @@ const SERVICES_DATA = [
 export const metadata: Metadata = {
   title: "Our Services",
   description:
-    "Comprehensive tree services including trimming, removal, stump grinding, emergency response, and more. Professional and insured tree care solutions.",
+    "Comprehensive tree services including trimming, removal, stump grinding, storm damage recovery, and more. Professional and insured tree care solutions. Serving the Denver, CO area.",
 };
 
 export default function ServicesPage() {
@@ -92,11 +95,26 @@ export default function ServicesPage() {
       <section className="relative">
         <div className="absolute inset-0 bg-black/40 z-10" />
         <div className="relative h-[400px]">
+          {/* Desktop image */}
           <Image
-            src="/placeholder.svg?height=400&width=1920"
-            alt="Copper Top Tree Services"
+            src={desktopHero}
+            alt={`${siteConfig.name} - Our Services`}
             fill
-            className="object-cover"
+            priority
+            placeholder="blur"
+            className="object-cover hidden md:block"
+            sizes="(min-width: 768px) 100vw"
+          />
+
+          {/* Mobile image */}
+          <Image
+            src={mobileHero}
+            alt={`${siteConfig.name} - Our Services`}
+            fill
+            priority
+            placeholder="blur"
+            className="object-cover block md:hidden"
+            sizes="(max-width: 767px) 100vw"
           />
         </div>
         <div className="absolute inset-0 z-20 flex items-center justify-center">

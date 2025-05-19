@@ -9,7 +9,6 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { siteConfig } from "@/lib/siteConfig";
-import { Separator } from "@/components/ui/separator";
 
 const routes = [
   { href: "/", label: "Home" },
@@ -55,7 +54,12 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden md:block absolute right-0 pr-4">
-          <Button asChild animate="pulse" size="sm" className="rounded-full">
+          <Button
+            asChild
+            animate="pulse"
+            size="sm"
+            className="rounded-full shadow-lg"
+          >
             <Link href="/contact">Get a Free Quote</Link>
           </Button>
         </div>
@@ -83,7 +87,7 @@ export default function Navbar() {
                   {route.label}
                 </Link>
               ))}
-              <Button asChild className="mt-4 ">
+              <Button asChild className="mt-4">
                 <Link href="/contact" onClick={() => setIsOpen(false)}>
                   Get a Free Quote
                 </Link>

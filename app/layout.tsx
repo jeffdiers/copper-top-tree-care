@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description:
-    "Professional tree services including trimming, removal, stump grinding, and emergency services in your local area.",
+    "Professional tree services including trimming, removal, stump grinding, and emergency services in the Denver, CO area.",
   keywords: [
     "tree service",
     "tree removal",
@@ -42,6 +42,12 @@ export const metadata: Metadata = {
     "stump grinding",
     "arborist",
     "emergency tree service",
+    "denver, co",
+    "denver tree service",
+    "denver tree removal",
+    "denver tree trimming",
+    "denver stump grinding",
+    "denver emergency tree service",
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -51,14 +57,14 @@ export const metadata: Metadata = {
     url: siteConfig.url,
     title: `${siteConfig.name} | Professional Tree Care`,
     description:
-      "Professional tree services including trimming, removal, stump grinding, and emergency services in your local area.",
+      "Professional tree services including trimming, removal, stump grinding, and emergency services in the Denver, CO area.",
     siteName: siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | Professional Tree Care`,
     description:
-      "Professional tree services including trimming, removal, stump grinding, and emergency services in your local area.",
+      "Professional tree services including trimming, removal, stump grinding, and emergency services in the Denver, CO area.",
   },
   robots: {
     index: true,

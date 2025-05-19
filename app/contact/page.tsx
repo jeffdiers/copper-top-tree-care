@@ -6,7 +6,7 @@ import ContactPageClient from "./ContactPageClient";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Copper Top Tree Services for a free quote or to learn more about our professional tree care services.",
+    "Get in touch with Copper Top Tree Services for a free quote or to learn more about our professional tree care services in the Denver, CO area.",
 };
 
 export default function ContactPage() {

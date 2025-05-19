@@ -1,15 +1,21 @@
-import Image from "next/image"
-import Link from "next/link"
-import type { Metadata } from "next"
-import { Button } from "@/components/ui/button"
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Calendar, Clock, User } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Calendar, Clock, User } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Tree Care Blog",
   description:
-    "Expert tree care tips, industry insights, and helpful advice from the professionals at Copper Top Tree Services.",
-}
+    "Expert tree care tips, industry insights, and helpful advice from the professionals at Copper Top Tree Services. Serving the Denver, CO area.",
+};
 
 export default function BlogPage() {
   return (
@@ -27,7 +33,9 @@ export default function BlogPage() {
         </div>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div className="container text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Tree Care Blog</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Tree Care Blog
+            </h1>
             <p className="text-xl max-w-2xl mx-auto">
               Expert tips, industry insights, and helpful advice for tree care
             </p>
@@ -49,11 +57,17 @@ export default function BlogPage() {
             </div>
             <div>
               <div className="flex items-center gap-4 mb-4">
-                <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Featured</span>
-                <span className="text-sm text-muted-foreground">{blogPosts[0].category}</span>
+                <span className="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                  Featured
+                </span>
+                <span className="text-sm text-muted-foreground">
+                  {blogPosts[0].category}
+                </span>
               </div>
               <h2 className="text-3xl font-bold mb-4">{blogPosts[0].title}</h2>
-              <p className="text-muted-foreground mb-6">{blogPosts[0].excerpt}</p>
+              <p className="text-muted-foreground mb-6">
+                {blogPosts[0].excerpt}
+              </p>
               <div className="flex items-center gap-6 mb-6">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Calendar className="h-4 w-4" />
@@ -80,9 +94,12 @@ export default function BlogPage() {
       <section className="py-16 md:py-24 bg-green-50">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Recent Articles</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Recent Articles
+            </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Stay up-to-date with the latest tree care tips and industry insights
+              Stay up-to-date with the latest tree care tips and industry
+              insights
             </p>
           </div>
 
@@ -99,7 +116,9 @@ export default function BlogPage() {
                 </div>
                 <CardHeader className="flex-grow">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-sm text-muted-foreground">{post.category}</span>
+                    <span className="text-sm text-muted-foreground">
+                      {post.category}
+                    </span>
                   </div>
                   <CardTitle className="mb-2">{post.title}</CardTitle>
                   <CardDescription>{post.excerpt}</CardDescription>
@@ -109,7 +128,10 @@ export default function BlogPage() {
                     <Calendar className="h-4 w-4" />
                     <span>{post.date}</span>
                   </div>
-                  <Link href={`/blog/${post.slug}`} className="text-green-700 font-medium hover:underline">
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="text-green-700 font-medium hover:underline"
+                  >
                     Read More
                   </Link>
                 </CardFooter>
@@ -118,7 +140,11 @@ export default function BlogPage() {
           </div>
 
           <div className="text-center mt-12">
-            <Button asChild variant="outline" className="border-green-700 text-green-700 hover:bg-green-50">
+            <Button
+              asChild
+              variant="outline"
+              className="border-green-700 text-green-700 hover:bg-green-50"
+            >
               <Link href="/blog/archive">View All Articles</Link>
             </Button>
           </div>
@@ -129,7 +155,9 @@ export default function BlogPage() {
       <section className="py-16 md:py-24">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Browse by Category</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Browse by Category
+            </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Find articles on specific tree care topics
             </p>
@@ -162,9 +190,12 @@ export default function BlogPage() {
       <section className="py-16 md:py-24 bg-green-800 text-white">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Subscribe to Our Newsletter
+            </h2>
             <p className="text-lg mb-8">
-              Get the latest tree care tips, industry news, and special offers delivered to your inbox.
+              Get the latest tree care tips, industry news, and special offers
+              delivered to your inbox.
             </p>
             <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
@@ -173,26 +204,30 @@ export default function BlogPage() {
                 className="px-4 py-3 rounded-lg flex-grow text-black"
                 required
               />
-              <Button className="bg-white text-green-800 hover:bg-gray-100">Subscribe</Button>
+              <Button className="bg-white text-green-800 hover:bg-gray-100">
+                Subscribe
+              </Button>
             </form>
-            <p className="text-sm mt-4 text-green-100">We respect your privacy. Unsubscribe at any time.</p>
+            <p className="text-sm mt-4 text-green-100">
+              We respect your privacy. Unsubscribe at any time.
+            </p>
           </div>
         </div>
       </section>
     </>
-  )
+  );
 }
 
 interface BlogPost {
-  title: string
-  slug: string
-  excerpt: string
-  content?: string
-  image: string
-  date: string
-  author: string
-  category: string
-  readTime: number
+  title: string;
+  slug: string;
+  excerpt: string;
+  content?: string;
+  image: string;
+  date: string;
+  author: string;
+  category: string;
+  readTime: number;
 }
 
 const blogPosts: BlogPost[] = [
@@ -221,7 +256,8 @@ const blogPosts: BlogPost[] = [
   {
     title: "How to Prepare Your Trees for Storm Season",
     slug: "prepare-trees-for-storms",
-    excerpt: "Protect your property by preparing your trees before storm season arrives with these essential tips.",
+    excerpt:
+      "Protect your property by preparing your trees before storm season arrives with these essential tips.",
     image: "/placeholder.svg?height=400&width=600",
     date: "April 10, 2023",
     author: "Mike Rodriguez",
@@ -253,7 +289,8 @@ const blogPosts: BlogPost[] = [
   {
     title: "The Environmental Impact of Proper Tree Care",
     slug: "environmental-impact-tree-care",
-    excerpt: "Learn how proper tree maintenance contributes to environmental health and sustainability in urban areas.",
+    excerpt:
+      "Learn how proper tree maintenance contributes to environmental health and sustainability in urban areas.",
     image: "/placeholder.svg?height=400&width=600",
     date: "February 18, 2023",
     author: "David Miller",
@@ -271,12 +308,12 @@ const blogPosts: BlogPost[] = [
     category: "Safety",
     readTime: 8,
   },
-]
+];
 
 interface Category {
-  name: string
-  slug: string
-  image: string
+  name: string;
+  slug: string;
+  image: string;
 }
 
 const categories: Category[] = [
@@ -320,4 +357,4 @@ const categories: Category[] = [
     slug: "diy-tips",
     image: "/placeholder.svg?height=300&width=400",
   },
-]
+];

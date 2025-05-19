@@ -20,7 +20,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Find answers to common questions about tree services, pricing, scheduling, and more from Copper Top Tree Services.",
+    "Find answers to common questions about tree services, pricing, scheduling, and more from Copper Top Tree Services. Serving the Denver, CO area.",
 };
 
 export default function FAQPage() {
@@ -283,7 +283,7 @@ const generalFAQs: FAQ[] = [
   {
     question: "How experienced is your team?",
     answer:
-      "Our team consists of certified arborists and trained professionals with decades of combined experience in the tree care industry. Our company has been providing professional tree services for over 15 years, and our staff undergoes regular training to stay current with industry best practices.",
+      "Our team consists of certified arborists and trained professionals with decades of combined experience in the tree care industry. Our company has been providing professional tree services for over 10 years, and our staff undergoes regular training to stay current with industry best practices.",
   },
   {
     question: "Do you offer storm recovery & cleanup services?",

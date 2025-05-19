@@ -16,7 +16,7 @@ export default function SchemaMarkup() {
               logo: `${siteConfig.url}/logo.webp`,
               image: `${siteConfig.url}/images/storefront.jpg`,
               description:
-                "Professional tree services including trimming, removal, stump grinding, and emergency services in your local area.",
+                "Professional tree services including trimming, removal, stump grinding, and emergency services in the Denver, CO area.",
               telephone: siteConfig.phoneFormatted,
               email: siteConfig.email,
               address: {
@@ -87,7 +87,7 @@ export default function SchemaMarkup() {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Emergency Tree Removal",
+                      name: "Storm Damage and Cleanup",
                     },
                   },
                   {
@@ -104,7 +104,7 @@ export default function SchemaMarkup() {
               "@type": "Service",
               name: "Tree Trimming",
               description:
-                "Professional pruning to improve tree health, appearance, and safety while promoting proper growth.",
+                "Professional pruning to improve tree health, appearance, and safety while promoting proper growth. Serving the Denver, CO area.",
               provider: {
                 "@id": `${siteConfig.url}/#organization`,
               },
@@ -122,7 +122,7 @@ export default function SchemaMarkup() {
               "@type": "Service",
               name: "Stump Grinding",
               description:
-                "Complete stump removal to reclaim your yard space and prevent regrowth.",
+                "Complete stump removal to reclaim your yard space and prevent regrowth. Serving the Denver, CO area.",
               provider: {
                 "@id": `${siteConfig.url}/#organization`,
               },

@@ -1,14 +1,14 @@
-import Image from "next/image"
-import Link from "next/link"
-import type { Metadata } from "next"
-import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const metadata: Metadata = {
   title: "Project Gallery",
   description:
-    "View our portfolio of completed tree service projects including tree removal, trimming, stump grinding, and emergency services.",
-}
+    "View our portfolio of completed tree service projects including tree removal, trimming, stump grinding, and emergency services. Serving the Denver, CO area.",
+};
 
 export default function GalleryPage() {
   return (
@@ -26,8 +26,12 @@ export default function GalleryPage() {
         </div>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div className="container text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Project Gallery</h1>
-            <p className="text-xl max-w-2xl mx-auto">Browse our portfolio of completed tree service projects</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Project Gallery
+            </h1>
+            <p className="text-xl max-w-2xl mx-auto">
+              Browse our portfolio of completed tree service projects
+            </p>
           </div>
         </div>
       </section>
@@ -101,7 +105,9 @@ export default function GalleryPage() {
       <section className="py-16 md:py-24 bg-green-50">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Before & After</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Before & After
+            </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               See the dramatic transformations our services can provide
             </p>
@@ -120,7 +126,9 @@ export default function GalleryPage() {
                         fill
                         className="object-cover"
                       />
-                      <div className="absolute bottom-0 left-0 bg-black/70 text-white px-3 py-1 text-sm">Before</div>
+                      <div className="absolute bottom-0 left-0 bg-black/70 text-white px-3 py-1 text-sm">
+                        Before
+                      </div>
                     </div>
                   </div>
                   <div className="space-y-2">
@@ -131,7 +139,9 @@ export default function GalleryPage() {
                         fill
                         className="object-cover"
                       />
-                      <div className="absolute bottom-0 left-0 bg-green-700 text-white px-3 py-1 text-sm">After</div>
+                      <div className="absolute bottom-0 left-0 bg-green-700 text-white px-3 py-1 text-sm">
+                        After
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -145,25 +155,32 @@ export default function GalleryPage() {
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-green-800 text-white">
         <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Property?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to Transform Your Property?
+          </h2>
           <p className="text-lg max-w-2xl mx-auto mb-8">
-            Contact us today to discuss your tree care needs and join our portfolio of successful projects.
+            Contact us today to discuss your tree care needs and join our
+            portfolio of successful projects.
           </p>
-          <Button asChild size="lg" className="bg-white text-green-800 hover:bg-gray-100">
+          <Button
+            asChild
+            size="lg"
+            className="bg-white text-green-800 hover:bg-gray-100"
+          >
             <Link href="/contact">Get Your Free Quote</Link>
           </Button>
         </div>
       </section>
     </>
-  )
+  );
 }
 
 interface Project {
-  title: string
-  description: string
-  image: string
-  category: "removal" | "trimming" | "stump" | "emergency"
-  location: string
+  title: string;
+  description: string;
+  image: string;
+  category: "removal" | "trimming" | "stump" | "emergency";
+  location: string;
 }
 
 function GalleryItem({ project }: { project: Project }) {
@@ -184,80 +201,89 @@ function GalleryItem({ project }: { project: Project }) {
         <p className="text-muted-foreground">{project.description}</p>
       </div>
     </div>
-  )
+  );
 }
 
 const projects: Project[] = [
   {
     title: "Large Oak Removal",
-    description: "Removal of a 100-year-old oak tree that was diseased and posed a risk to the home.",
+    description:
+      "Removal of a 100-year-old oak tree that was diseased and posed a risk to the home.",
     image: "/placeholder.svg?height=400&width=400",
     category: "removal",
     location: "Anytown, USA",
   },
   {
     title: "Maple Tree Trimming",
-    description: "Crown reduction and deadwood removal to improve tree health and appearance.",
+    description:
+      "Crown reduction and deadwood removal to improve tree health and appearance.",
     image: "/placeholder.svg?height=400&width=400",
     category: "trimming",
     location: "Springfield, USA",
   },
   {
     title: "Multiple Stump Grinding",
-    description: "Removal of five tree stumps to reclaim yard space for landscaping.",
+    description:
+      "Removal of five tree stumps to reclaim yard space for landscaping.",
     image: "/placeholder.svg?height=400&width=400",
     category: "stump",
     location: "Riverside, USA",
   },
   {
     title: "Storm Damage Cleanup",
-    description: "Emergency removal of a fallen pine tree after a severe storm.",
+    description:
+      "Emergency removal of a fallen pine tree after a severe storm.",
     image: "/placeholder.svg?height=400&width=400",
     category: "emergency",
     location: "Oakville, USA",
   },
   {
     title: "Residential Tree Removal",
-    description: "Safe removal of three trees too close to the foundation of the home.",
+    description:
+      "Safe removal of three trees too close to the foundation of the home.",
     image: "/placeholder.svg?height=400&width=400",
     category: "removal",
     location: "Maplewood, USA",
   },
   {
     title: "Ornamental Tree Pruning",
-    description: "Careful pruning of Japanese maple trees to enhance their natural shape.",
+    description:
+      "Careful pruning of Japanese maple trees to enhance their natural shape.",
     image: "/placeholder.svg?height=400&width=400",
     category: "trimming",
     location: "Cedar Heights, USA",
   },
   {
     title: "Commercial Stump Removal",
-    description: "Removal of large stumps from a commercial property being prepared for landscaping.",
+    description:
+      "Removal of large stumps from a commercial property being prepared for landscaping.",
     image: "/placeholder.svg?height=400&width=400",
     category: "stump",
     location: "Pine Valley, USA",
   },
   {
     title: "Lightning Strike Response",
-    description: "Emergency removal of a tree damaged by lightning that threatened power lines.",
+    description:
+      "Emergency removal of a tree damaged by lightning that threatened power lines.",
     image: "/placeholder.svg?height=400&width=400",
     category: "emergency",
     location: "Anytown, USA",
   },
   {
     title: "Pine Tree Removal",
-    description: "Removal of tall pine trees too close to a residential structure.",
+    description:
+      "Removal of tall pine trees too close to a residential structure.",
     image: "/placeholder.svg?height=400&width=400",
     category: "removal",
     location: "Springfield, USA",
   },
-]
+];
 
 interface BeforeAfterProject {
-  title: string
-  description: string
-  before: string
-  after: string
+  title: string;
+  description: string;
+  before: string;
+  after: string;
 }
 
 const beforeAfterProjects: BeforeAfterProject[] = [
@@ -289,4 +315,4 @@ const beforeAfterProjects: BeforeAfterProject[] = [
     before: "/placeholder.svg?height=400&width=400",
     after: "/placeholder.svg?height=400&width=400",
   },
-]
+];

@@ -207,7 +207,7 @@ export default function Home() {
               <div>
                 <h3 className="text-xl font-semibold mb-2">Experienced Team</h3>
                 <p className="text-muted-foreground">
-                  Our certified arborists have over 15 years of experience in
+                  Our certified arborists have over 10 years of experience in
                   the tree care industry.
                 </p>
               </div>

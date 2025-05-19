@@ -1,15 +1,15 @@
-import Image from "next/image"
-import Link from "next/link"
-import type { Metadata } from "next"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Star } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Star } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Customer Testimonials",
   description:
-    "Read what our satisfied customers have to say about Copper Top Tree Services. Real reviews from real customers.",
-}
+    "Read what our satisfied customers have to say about Copper Top Tree Services. Real reviews from real customers. Serving the Denver, CO area.",
+};
 
 export default function TestimonialsPage() {
   return (
@@ -27,9 +27,12 @@ export default function TestimonialsPage() {
         </div>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div className="container text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Customer Testimonials</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Customer Testimonials
+            </h1>
             <p className="text-xl max-w-2xl mx-auto">
-              Don't just take our word for it. See what our customers have to say about our services.
+              Don't just take our word for it. See what our customers have to
+              say about our services.
             </p>
           </div>
         </div>
@@ -50,29 +53,40 @@ export default function TestimonialsPage() {
       <section className="py-16 md:py-24 bg-green-50">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Video Testimonials</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Video Testimonials
+            </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Watch what our customers have to say about their experience with Copper Top Tree Services
+              Watch what our customers have to say about their experience with
+              Copper Top Tree Services
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[1, 2].map((item) => (
-              <div key={item} className="bg-white rounded-lg overflow-hidden shadow-sm border border-green-100">
+              <div
+                key={item}
+                className="bg-white rounded-lg overflow-hidden shadow-sm border border-green-100"
+              >
                 <div className="aspect-video bg-gray-200 flex items-center justify-center">
-                  <p className="text-muted-foreground">Video Testimonial {item}</p>
+                  <p className="text-muted-foreground">
+                    Video Testimonial {item}
+                  </p>
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 rounded-full bg-gray-200"></div>
                     <div>
                       <h3 className="font-semibold">Video Customer {item}</h3>
-                      <p className="text-sm text-muted-foreground">Residential Client</p>
+                      <p className="text-sm text-muted-foreground">
+                        Residential Client
+                      </p>
                     </div>
                   </div>
                   <p className="text-muted-foreground">
-                    "Copper Top Tree Services did an amazing job with our property. The team was professional,
-                    efficient, and left our yard cleaner than when they arrived."
+                    "Copper Top Tree Services did an amazing job with our
+                    property. The team was professional, efficient, and left our
+                    yard cleaner than when they arrived."
                   </p>
                 </div>
               </div>
@@ -85,24 +99,38 @@ export default function TestimonialsPage() {
       <section className="py-16 md:py-24">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Share Your Experience</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Share Your Experience
+            </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              We value your feedback! If you've used our services, please consider leaving a review on one of these
-              platforms.
+              We value your feedback! If you've used our services, please
+              consider leaving a review on one of these platforms.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button asChild className="bg-green-700 hover:bg-green-800">
-                <Link href="https://www.google.com" target="_blank" rel="noopener noreferrer">
+                <Link
+                  href="https://www.google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Review on Google
                 </Link>
               </Button>
               <Button asChild className="bg-green-700 hover:bg-green-800">
-                <Link href="https://www.yelp.com" target="_blank" rel="noopener noreferrer">
+                <Link
+                  href="https://www.yelp.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Review on Yelp
                 </Link>
               </Button>
               <Button asChild className="bg-green-700 hover:bg-green-800">
-                <Link href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                <Link
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Review on Facebook
                 </Link>
               </Button>
@@ -114,27 +142,34 @@ export default function TestimonialsPage() {
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-green-800 text-white">
         <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Experience Our Service?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Ready to Experience Our Service?
+          </h2>
           <p className="text-lg max-w-2xl mx-auto mb-8">
-            Join our satisfied customers and see why they recommend Copper Top Tree Services.
+            Join our satisfied customers and see why they recommend Copper Top
+            Tree Services.
           </p>
-          <Button asChild size="lg" className="bg-white text-green-800 hover:bg-gray-100">
+          <Button
+            asChild
+            size="lg"
+            className="bg-white text-green-800 hover:bg-gray-100"
+          >
             <Link href="/contact">Get Your Free Quote</Link>
           </Button>
         </div>
       </section>
     </>
-  )
+  );
 }
 
 interface Testimonial {
-  name: string
-  location: string
-  service: string
-  rating: number
-  date: string
-  content: string
-  image?: string
+  name: string;
+  location: string;
+  service: string;
+  rating: number;
+  date: string;
+  content: string;
+  image?: string;
 }
 
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
@@ -160,12 +195,17 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
             </div>
             <div>
               <h3 className="font-semibold">{testimonial.name}</h3>
-              <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+              <p className="text-sm text-muted-foreground">
+                {testimonial.location}
+              </p>
             </div>
           </div>
           <div className="flex">
             {Array.from({ length: testimonial.rating }).map((_, i) => (
-              <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+              <Star
+                key={i}
+                className="h-5 w-5 text-yellow-400 fill-yellow-400"
+              />
             ))}
           </div>
         </div>
@@ -178,7 +218,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
 
 const testimonials: Testimonial[] = [
@@ -263,4 +303,4 @@ const testimonials: Testimonial[] = [
     content:
       "When a tree fell on my garage during a storm, Copper Top responded within hours. Their emergency team worked safely and efficiently to remove the tree and minimize further damage. Their professionalism during a stressful situation was greatly appreciated.",
   },
-]
+];

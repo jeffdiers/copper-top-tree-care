@@ -21,7 +21,7 @@ import alec from "@/public/alec.webp";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about Copper Top Tree Services - our history, mission, values, and expert team. Providing professional tree care services for over 15 years.",
+    "Learn about Copper Top Tree Services - our history, mission, values, and expert team. Providing professional tree care services for over 10 years. Serving the Denver, CO area.",
 };
 
 export default function AboutPage() {
