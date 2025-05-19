@@ -1,10 +1,11 @@
+import { type VariantProps, cva } from "class-variance-authority";
+
 import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
-  "inline-flex items-center gap-2 rounded-full border transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  "inline-flex items-center gap-2 rounded-full border transition-colors focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-none",
   {
     variants: {
       variant: {
@@ -18,7 +19,7 @@ const badgeVariants = cva(
         accent: "bg-accent text-accent-foreground hover:bg-accent/80",
       },
       size: {
-        default: "text-xs px-2.5 py-0.5",
+        default: "px-2.5 py-0.5 text-xs",
         lg: "text-md px-3 py-0.5",
       },
     },
@@ -26,7 +27,7 @@ const badgeVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 
 export interface BadgeProps

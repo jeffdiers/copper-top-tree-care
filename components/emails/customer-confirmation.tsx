@@ -33,7 +33,7 @@ export function CustomerConfirmationEmail({
 
         <p style={paragraph}>
           If you have any immediate questions or need emergency service, please
-          don't hesitate to call us at{" "}
+          don&apos;t hesitate to call us at{" "}
           <strong>{siteConfig.phoneFormatted}</strong>.
         </p>
 

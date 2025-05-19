@@ -1,12 +1,17 @@
-import type React from "react";
 import type { Metadata } from "next";
-import { Cardo, Montserrat, Castoro, Caprasimo } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
-import { ThemeProvider } from "@/components/theme-provider";
-import SchemaMarkup from "@/components/schema-markup";
+
+import type React from "react";
+
+import { Caprasimo, Cardo, Castoro, Montserrat } from "next/font/google";
+
 import { siteConfig } from "@/lib/siteConfig";
+
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+import SchemaMarkup from "@/components/schema-markup";
+import { ThemeProvider } from "@/components/theme-provider";
+
+import "./globals.css";
 
 const cardo = Cardo({
   subsets: ["latin"],

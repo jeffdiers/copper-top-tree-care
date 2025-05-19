@@ -1,8 +1,21 @@
 "use client";
 
+import { submitContactForm } from "@/app/api/contact/action";
+import { toast } from "sonner";
+import { Toaster } from "sonner";
+
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
-import Link from "next/link";
+import { useFormStatus } from "react-dom";
+
 import Image from "next/image";
+import Link from "next/link";
+
+import desktopHero from "@/public/contact/hero-desktop.webp";
+import mobileHero from "@/public/contact/hero-mobile.webp";
+
+import { siteConfig } from "@/lib/siteConfig";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -15,14 +28,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import { submitContactForm } from "@/app/api/contact/action";
-import { useFormStatus } from "react-dom";
-import { Toaster } from "sonner";
-import { siteConfig } from "@/lib/siteConfig";
-import desktopHero from "@/public/contact/hero-desktop.webp";
-import mobileHero from "@/public/contact/hero-mobile.webp";
 
 export default function ContactPageClient() {
   const [formState, setFormState] = useState<{
@@ -52,7 +57,7 @@ export default function ContactPageClient() {
     <>
       {/* Hero Section */}
       <section className="relative">
-        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="absolute inset-0 z-10 bg-black/40" />
         <div className="relative h-[400px]">
           {/* Desktop image */}
           <Image
@@ -61,7 +66,7 @@ export default function ContactPageClient() {
             fill
             priority
             placeholder="blur"
-            className="object-cover hidden md:block"
+            className="hidden object-cover md:block"
             sizes="(min-width: 768px) 100vw"
           />
 
@@ -72,14 +77,14 @@ export default function ContactPageClient() {
             fill
             priority
             placeholder="blur"
-            className="object-cover block md:hidden"
+            className="block object-cover md:hidden"
             sizes="(max-width: 767px) 100vw"
           />
         </div>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div className="container text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-            <p className="text-xl max-w-2xl mx-auto">
+            <h1 className="mb-4 text-4xl font-bold md:text-5xl">Contact Us</h1>
+            <p className="mx-auto max-w-2xl text-xl">
               Get in touch for a free quote or to learn more about our services
             </p>
           </div>
@@ -89,15 +94,15 @@ export default function ContactPageClient() {
       {/* Contact Form & Info */}
       <section className="py-16 md:py-24">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
             {/* Contact Form */}
             <div>
               <Card>
                 <CardHeader>
                   <CardTitle>Get a Free Quote</CardTitle>
                   <CardDescription>
-                    Fill out the form below and we'll get back to you as soon as
-                    possible.
+                    Fill out the form below and we&apos;ll get back to you as
+                    soon as possible.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -106,7 +111,7 @@ export default function ContactPageClient() {
                     action={clientAction}
                     className="space-y-6"
                   >
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                       <div className="space-y-2">
                         <Label htmlFor="first-name">First Name</Label>
                         <Input id="first-name" name="first-name" required />
@@ -117,7 +122,7 @@ export default function ContactPageClient() {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                       <div className="space-y-2">
                         <Label htmlFor="email">Email</Label>
                         <Input id="email" name="email" type="email" required />
@@ -254,7 +259,7 @@ export default function ContactPageClient() {
 
                   {formState && (
                     <div
-                      className={`mt-4 p-4 rounded-md ${
+                      className={`mt-4 rounded-md p-4 ${
                         formState.success
                           ? "bg-green-50 text-green-700"
                           : "bg-red-50 text-red-700"
@@ -270,16 +275,16 @@ export default function ContactPageClient() {
             {/* Contact Info */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                <h2 className="mb-6 text-2xl font-bold md:text-3xl">
                   Contact Information
                 </h2>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-green-100">
                       <Phone className="h-5 w-5 text-green-700" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Phone</h3>
+                      <h3 className="text-lg font-semibold">Phone</h3>
                       <p className="text-muted-foreground">
                         {siteConfig.phoneFormatted}
                       </p>
@@ -287,26 +292,26 @@ export default function ContactPageClient() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-green-100">
                       <Mail className="h-5 w-5 text-green-700" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Email</h3>
+                      <h3 className="text-lg font-semibold">Email</h3>
                       <p className="text-muted-foreground">
                         {siteConfig.email}
                       </p>
-                      <p className="text-sm text-muted-foreground mt-1">
+                      <p className="mt-1 text-sm text-muted-foreground">
                         We typically respond within 24 hours
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-green-100">
                       <MapPin className="h-5 w-5 text-green-700" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Location</h3>
+                      <h3 className="text-lg font-semibold">Location</h3>
                       <p className="text-muted-foreground">
                         {siteConfig.address.city}, {siteConfig.address.state}
                       </p>
@@ -314,11 +319,11 @@ export default function ContactPageClient() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-green-100">
                       <Clock className="h-5 w-5 text-green-700" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Business Hours</h3>
+                      <h3 className="text-lg font-semibold">Business Hours</h3>
                       <div className="grid grid-cols-2 gap-x-4 text-muted-foreground">
                         <p>Monday - Friday:</p>
                         <p>7:00 AM - 6:00 PM</p>
@@ -332,9 +337,9 @@ export default function ContactPageClient() {
                 </div>
               </div>
 
-              <div className="bg-green-50 p-6 rounded-lg">
-                <h3 className="font-semibold text-lg mb-4">Service Area</h3>
-                <p className="text-muted-foreground mb-4">
+              <div className="rounded-lg bg-green-50 p-6">
+                <h3 className="mb-4 text-lg font-semibold">Service Area</h3>
+                <p className="mb-4 text-muted-foreground">
                   We proudly serve residential and commercial clients throughout
                   the following areas:
                 </p>
@@ -348,7 +353,7 @@ export default function ContactPageClient() {
                   <li>Boulder</li>
                   <li>And surrounding areas</li>
                 </ul>
-                <p className="text-sm text-muted-foreground mt-4">
+                <p className="mt-4 text-sm text-muted-foreground">
                   Not sure if we service your area? Contact us to find out!
                 </p>
               </div>
@@ -358,19 +363,19 @@ export default function ContactPageClient() {
       </section>
 
       {/* Map Section */}
-      <section className="py-16 md:py-24 bg-green-50">
+      <section className="bg-green-50 py-16 md:py-24">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Find Us</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">Find Us</h2>
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
               Visit our office or contact us for on-site consultations
             </p>
           </div>
 
-          <div className="bg-white p-4 rounded-lg shadow-sm border border-green-100">
-            <div className="aspect-[16/9] bg-gray-200 rounded-lg overflow-hidden">
+          <div className="rounded-lg border border-green-100 bg-white p-4 shadow-sm">
+            <div className="aspect-[16/9] overflow-hidden rounded-lg bg-gray-200">
               {/* This would be replaced with an actual map component in production */}
-              <div className="w-full h-full flex items-center justify-center">
+              <div className="flex h-full w-full items-center justify-center">
                 <p className="text-muted-foreground">
                   Interactive Map Would Be Displayed Here
                 </p>
@@ -383,16 +388,16 @@ export default function ContactPageClient() {
       {/* FAQ Section */}
       <section className="py-16 md:py-24">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
               Find answers to common questions about our services
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <Card>
               <CardHeader>
                 <CardTitle>How much does tree removal cost?</CardTitle>
@@ -414,7 +419,7 @@ export default function ContactPageClient() {
               <CardContent>
                 <p className="text-muted-foreground">
                   Yes, Copper Top Tree Services is fully licensed and insured.
-                  We carry comprehensive liability insurance and workers'
+                  We carry comprehensive liability insurance and workers&apos;
                   compensation to protect both our clients and our team.
                 </p>
               </CardContent>
@@ -456,16 +461,16 @@ export default function ContactPageClient() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-green-800 text-white">
+      <section className="bg-green-800 py-16 text-white md:py-24">
         <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
             Ready for Professional Tree Care?
           </h2>
-          <p className="text-lg max-w-2xl mx-auto mb-8">
+          <p className="mx-auto mb-8 max-w-2xl text-lg">
             Contact us today for a free consultation and estimate. Our team is
             ready to help with all your tree care needs.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button
               asChild
               size="lg"
@@ -479,7 +484,7 @@ export default function ContactPageClient() {
               asChild
               size="lg"
               variant="outline"
-              className="bg-transparent text-white border-white hover:bg-white/10"
+              className="border-white bg-transparent text-white hover:bg-white/10"
             >
               <Link href={`mailto:${siteConfig.email}`}>Email Us</Link>
             </Button>

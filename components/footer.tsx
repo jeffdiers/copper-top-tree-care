@@ -1,21 +1,24 @@
-import Link from "next/link";
 import {
-  Phone,
+  Facebook,
+  HeartHandshake,
+  Instagram,
   Mail,
   MapPin,
-  Facebook,
-  Instagram,
-  HeartHandshake,
+  Phone,
 } from "lucide-react";
-import { siteConfig } from "@/lib/siteConfig";
+
 import Image from "next/image";
+import Link from "next/link";
+
 import logo from "@/public/logo.webp";
+
+import { siteConfig } from "@/lib/siteConfig";
 
 export default function Footer() {
   return (
-    <footer className="bg-green-50 border-t">
+    <footer className="border-t bg-green-50">
       <div className="container py-6 lg:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_1fr_1fr] gap-8 ">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[auto_1fr_1fr_1fr]">
           <div className="space-y-4">
             <div className="flex items-center pr-4">
               <Image
@@ -28,7 +31,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-lg mb-4">Services</h3>
+            <h3 className="mb-4 text-lg font-semibold">Services</h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -66,7 +69,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-lg mb-4">Company</h3>
+            <h3 className="mb-4 text-lg font-semibold">Company</h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -104,25 +107,25 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-lg mb-4">Contact</h3>
+            <h3 className="mb-4 text-lg font-semibold">Contact</h3>
             <ul className="space-y-3">
-              <li className="flex items-start gap-2 w-fit">
-                <Phone className="h-5 w-5 text-secondary mt-0.5" />
+              <li className="flex w-fit items-start gap-2">
+                <Phone className="mt-0.5 h-5 w-5 text-secondary" />
                 <span>{siteConfig.phoneFormatted}</span>
               </li>
-              <li className="flex items-start gap-2 overflow-visible w-fit">
-                <Mail className="h-5 w-5 text-secondary mt-0.5" />
+              <li className="flex w-fit items-start gap-2 overflow-visible">
+                <Mail className="mt-0.5 h-5 w-5 text-secondary" />
                 <span>{siteConfig.email}</span>
               </li>
-              <li className="flex items-start gap-2 w-fit">
-                <MapPin className="h-5 w-5 text-secondary mt-0.5" />
+              <li className="flex w-fit items-start gap-2">
+                <MapPin className="mt-0.5 h-5 w-5 text-secondary" />
                 <span>
                   {siteConfig.address.city}, {siteConfig.address.state}
                 </span>
               </li>
             </ul>
 
-            <div className="flex space-x-4 mt-4 border-t border-border pt-4">
+            <div className="mt-4 flex space-x-4 border-t border-border pt-4">
               <Link
                 href={siteConfig.social.facebook}
                 target="_blank"
@@ -145,12 +148,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-border text-center text-sm text-muted-foreground">
+        <div className="mt-12 border-t border-border pt-6 text-center text-sm text-muted-foreground">
           <p>
             &copy; {new Date().getFullYear()} {siteConfig.name} LLC. All rights
             reserved. |{" "}
             <span className="font-caprasimo text-xs">
-              <HeartHandshake className="h-4 w-4 inline-block mr-1" />
+              <HeartHandshake className="mr-1 inline-block h-4 w-4" />
               Site by{" "}
               <Link href={siteConfig.devSite} className="underline">
                 jeffdiers.com

@@ -1,13 +1,15 @@
-import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
+
+import Image from "next/image";
+import Link from "next/link";
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -28,7 +30,7 @@ export default function FAQPage() {
     <>
       {/* Hero Section */}
       <section className="relative">
-        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="absolute inset-0 z-10 bg-black/40" />
         <div className="relative h-[400px]">
           <Image
             src="/placeholder.svg?height=400&width=1920"
@@ -39,10 +41,10 @@ export default function FAQPage() {
         </div>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div className="container text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="mb-4 text-4xl font-bold md:text-5xl">
               Frequently Asked Questions
             </h1>
-            <p className="text-xl max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-xl">
               Find answers to common questions about our tree services
             </p>
           </div>
@@ -53,8 +55,8 @@ export default function FAQPage() {
       <section className="py-16 md:py-24">
         <div className="container">
           <Tabs defaultValue="general" className="w-full">
-            <div className="flex justify-center mb-8">
-              <TabsList className="grid grid-cols-2 md:grid-cols-5 w-full max-w-2xl">
+            <div className="mb-8 flex justify-center">
+              <TabsList className="grid w-full max-w-2xl grid-cols-2 md:grid-cols-5">
                 <TabsTrigger value="general">General</TabsTrigger>
                 <TabsTrigger value="services">Services</TabsTrigger>
                 <TabsTrigger value="pricing">Pricing</TabsTrigger>
@@ -64,7 +66,7 @@ export default function FAQPage() {
             </div>
 
             <TabsContent value="general" className="mt-0">
-              <div className="max-w-3xl mx-auto">
+              <div className="mx-auto max-w-3xl">
                 <Accordion type="single" collapsible className="w-full">
                   {generalFAQs.map((faq, index) => (
                     <AccordionItem key={index} value={`item-${index}`}>
@@ -83,7 +85,7 @@ export default function FAQPage() {
             </TabsContent>
 
             <TabsContent value="services" className="mt-0">
-              <div className="max-w-3xl mx-auto">
+              <div className="mx-auto max-w-3xl">
                 <Accordion type="single" collapsible className="w-full">
                   {servicesFAQs.map((faq, index) => (
                     <AccordionItem key={index} value={`item-${index}`}>
@@ -102,7 +104,7 @@ export default function FAQPage() {
             </TabsContent>
 
             <TabsContent value="pricing" className="mt-0">
-              <div className="max-w-3xl mx-auto">
+              <div className="mx-auto max-w-3xl">
                 <Accordion type="single" collapsible className="w-full">
                   {pricingFAQs.map((faq, index) => (
                     <AccordionItem key={index} value={`item-${index}`}>
@@ -121,7 +123,7 @@ export default function FAQPage() {
             </TabsContent>
 
             <TabsContent value="scheduling" className="mt-0">
-              <div className="max-w-3xl mx-auto">
+              <div className="mx-auto max-w-3xl">
                 <Accordion type="single" collapsible className="w-full">
                   {schedulingFAQs.map((faq, index) => (
                     <AccordionItem key={index} value={`item-${index}`}>
@@ -140,7 +142,7 @@ export default function FAQPage() {
             </TabsContent>
 
             <TabsContent value="aftercare" className="mt-0">
-              <div className="max-w-3xl mx-auto">
+              <div className="mx-auto max-w-3xl">
                 <Accordion type="single" collapsible className="w-full">
                   {aftercareFAQs.map((faq, index) => (
                     <AccordionItem key={index} value={`item-${index}`}>
@@ -162,19 +164,19 @@ export default function FAQPage() {
       </section>
 
       {/* Quick Help */}
-      <section className="py-16 md:py-24 bg-green-50">
+      <section className="bg-green-50 py-16 md:py-24">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
               Need More Help?
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              If you couldn't find the answer you're looking for, we're here to
-              help
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+              If you couldn&apos;t find the answer you&apos;re looking for,
+              we&apos;re here to help
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <Card>
               <CardHeader>
                 <CardTitle>Contact Us</CardTitle>
@@ -183,7 +185,7 @@ export default function FAQPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4">
+                <p className="mb-4 text-muted-foreground">
                   Our customer service team is available to answer any questions
                   you may have about our services.
                 </p>
@@ -204,7 +206,7 @@ export default function FAQPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4">
+                <p className="mb-4 text-muted-foreground">
                   Our certified arborists can provide personalized advice and
                   recommendations for your specific tree care needs.
                 </p>
@@ -225,7 +227,7 @@ export default function FAQPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4">
+                <p className="mb-4 text-muted-foreground">
                   Our blog features helpful articles on tree care, maintenance
                   tips, and industry insights that may answer your questions.
                 </p>
@@ -242,12 +244,12 @@ export default function FAQPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-green-800 text-white">
+      <section className="bg-green-800 py-16 text-white md:py-24">
         <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
             Ready for Professional Tree Care?
           </h2>
-          <p className="text-lg max-w-2xl mx-auto mb-8">
+          <p className="mx-auto mb-8 max-w-2xl text-lg">
             Contact us today for a free consultation and estimate. Our team is
             ready to help with all your tree care needs.
           </p>
@@ -293,7 +295,7 @@ const generalFAQs: FAQ[] = [
   {
     question: "Are you environmentally responsible?",
     answer:
-      "Absolutely. We're committed to environmentally responsible practices in all aspects of our work. We properly dispose of or recycle all tree waste, use eco-friendly equipment when possible, and follow sustainable tree care practices that promote long-term environmental health.",
+      "Absolutely. We&apos;re committed to environmentally responsible practices in all aspects of our work. We properly dispose of or recycle all tree waste, use eco-friendly equipment when possible, and follow sustainable tree care practices that promote long-term environmental health.",
   },
 ];
 
@@ -306,12 +308,12 @@ const servicesFAQs: FAQ[] = [
   {
     question: "How do I know if my tree needs to be removed?",
     answer:
-      "Signs that a tree may need removal include significant structural damage, extensive decay, severe leaning, major dead sections, fungal growth at the base, and proximity to structures that can't be mitigated through pruning. Our arborists can assess your tree and provide professional recommendations based on safety, health, and risk factors.",
+      "Signs that a tree may need removal include significant structural damage, extensive decay, severe leaning, major dead sections, fungal growth at the base, and proximity to structures that can&apos;t be mitigated through pruning. Our arborists can assess your tree and provide professional recommendations based on safety, health, and risk factors.",
   },
   {
     question: "What is the difference between tree trimming and pruning?",
     answer:
-      "While the terms are often used interchangeably, trimming typically refers to cutting back overgrown branches to improve appearance, while pruning is more selective cutting to improve tree health, structure, and safety. Pruning removes specific branches that are dead, diseased, or poorly positioned to promote the tree's long-term health and structural integrity.",
+      "While the terms are often used interchangeably, trimming typically refers to cutting back overgrown branches to improve appearance, while pruning is more selective cutting to improve tree health, structure, and safety. Pruning removes specific branches that are dead, diseased, or poorly positioned to promote the tree&apos;s long-term health and structural integrity.",
   },
   {
     question: "Do you remove the stump when you remove a tree?",
@@ -321,7 +323,7 @@ const servicesFAQs: FAQ[] = [
   {
     question: "Can you save a diseased tree?",
     answer:
-      "In many cases, yes. The success of treatment depends on the type of disease, how early it's caught, and the overall health of the tree. Our arborists can diagnose tree diseases and recommend appropriate treatments such as pruning infected areas, applying treatments, or improving soil conditions to help the tree recover.",
+      "In many cases, yes. The success of treatment depends on the type of disease, how early it&apos;s caught, and the overall health of the tree. Our arborists can diagnose tree diseases and recommend appropriate treatments such as pruning infected areas, applying treatments, or improving soil conditions to help the tree recover.",
   },
 ];
 
@@ -329,7 +331,7 @@ const pricingFAQs: FAQ[] = [
   {
     question: "How much does tree removal cost?",
     answer:
-      "Tree removal costs vary based on several factors including the tree's size, location, condition, accessibility, and the complexity of the job. For example, a small tree in an open area will cost less than a large tree near power lines or structures. We provide free on-site estimates to give you an accurate price for your specific situation.",
+      "Tree removal costs vary based on several factors including the tree&apos;s size, location, condition, accessibility, and the complexity of the job. For example, a small tree in an open area will cost less than a large tree near power lines or structures. We provide free on-site estimates to give you an accurate price for your specific situation.",
   },
   {
     question: "Do you offer free estimates?",
@@ -349,7 +351,7 @@ const pricingFAQs: FAQ[] = [
   {
     question: "Is tree work covered by insurance?",
     answer:
-      "In some cases, yes. Tree damage caused by covered perils like storms may be included in your homeowner's insurance policy. Emergency tree removal is often covered if a tree has fallen on a structure or is blocking access. We can provide the documentation you need for insurance claims and in some cases work directly with your insurance company.",
+      "In some cases, yes. Tree damage caused by covered perils like storms may be included in your homeowner&apos;s insurance policy. Emergency tree removal is often covered if a tree has fallen on a structure or is blocking access. We can provide the documentation you need for insurance claims and in some cases work directly with your insurance company.",
   },
 ];
 
@@ -367,12 +369,12 @@ const schedulingFAQs: FAQ[] = [
   {
     question: "Do I need to be home during the service?",
     answer:
-      "While it's not absolutely necessary for you to be present during the work, we do recommend being available at the beginning to review the work plan and at the end to inspect the completed job. If you can't be present, we can make arrangements to proceed with clear instructions.",
+      "While it&apos;s not absolutely necessary for you to be present during the work, we do recommend being available at the beginning to review the work plan and at the end to inspect the completed job. If you can&apos;t be present, we can make arrangements to proceed with clear instructions.",
   },
   {
     question: "What happens if there's bad weather on my scheduled day?",
     answer:
-      "Safety is our priority, so we may need to reschedule in cases of severe weather such as thunderstorms, high winds, or heavy rain. We'll contact you as soon as possible to reschedule for the next available day. Light rain or mild weather conditions typically don't affect our schedule.",
+      "Safety is our priority, so we may need to reschedule in cases of severe weather such as thunderstorms, high winds, or heavy rain. We&apos;ll contact you as soon as possible to reschedule for the next available day. Light rain or mild weather conditions typically don&apos;t affect our schedule.",
   },
 ];
 
@@ -380,7 +382,7 @@ const aftercareFAQs: FAQ[] = [
   {
     question: "Do you clean up after completing the work?",
     answer:
-      "Absolutely. We provide complete cleanup as part of our service. This includes removing all branches, logs, and debris generated during the work. We'll rake the area and blow off driveways and walkways to leave your property clean and tidy. If you'd like to keep some of the wood for firewood or other purposes, just let us know.",
+      "Absolutely. We provide complete cleanup as part of our service. This includes removing all branches, logs, and debris generated during the work. We&apos;ll rake the area and blow off driveways and walkways to leave your property clean and tidy. If you&apos;d like to keep some of the wood for firewood or other purposes, just let us know.",
   },
   {
     question: "What happens to the wood and debris after tree removal?",
@@ -390,12 +392,12 @@ const aftercareFAQs: FAQ[] = [
   {
     question: "How do I care for my lawn after stump grinding?",
     answer:
-      "After stump grinding, you'll have a depression filled with wood chips. You can either leave this to decompose naturally (which takes 1-2 years) or accelerate the process by removing some of the chips and filling the area with topsoil. Once filled, you can plant grass seed or sod, or create a new planting bed in the area.",
+      "After stump grinding, you&apos;ll have a depression filled with wood chips. You can either leave this to decompose naturally (which takes 1-2 years) or accelerate the process by removing some of the chips and filling the area with topsoil. Once filled, you can plant grass seed or sod, or create a new planting bed in the area.",
   },
   {
     question: "Can I plant a new tree where one was removed?",
     answer:
-      "In most cases, yes, but it depends on why the original tree was removed. If it was removed due to disease, it might be best to choose a different species or wait a period of time before replanting. If the stump was ground out, you'll need to remove the remaining wood chips and add fresh soil before planting. Our arborists can provide specific recommendations for your situation.",
+      "In most cases, yes, but it depends on why the original tree was removed. If it was removed due to disease, it might be best to choose a different species or wait a period of time before replanting. If the stump was ground out, you&apos;ll need to remove the remaining wood chips and add fresh soil before planting. Our arborists can provide specific recommendations for your situation.",
   },
   {
     question: "How often should trees be trimmed or pruned?",

@@ -1,15 +1,19 @@
 "use client";
 
+import { Menu } from "lucide-react";
 import { useState } from "react";
+
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, TreePine } from "lucide-react";
+
+import logo from "@/public/logo.webp";
+
+import { siteConfig } from "@/lib/siteConfig";
+import { cn } from "@/lib/utils";
+
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import { siteConfig } from "@/lib/siteConfig";
-import logo from "@/public/logo.webp";
 
 const routes = [
   { href: "/", label: "Home" },
@@ -23,8 +27,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky inset-x-0 top-0 z-50 w-full bg-background border-b">
-      <div className="flex items-center h-16 px-3 ">
+    <header className="sticky inset-x-0 top-0 z-50 w-full border-b bg-background">
+      <div className="flex h-16 items-center px-3">
         <Link href="/" className="flex items-center gap-2">
           <Image
             src={logo}
@@ -32,12 +36,12 @@ export default function Navbar() {
             width={60}
             height={60}
           />
-          <span className="text-xl font-bold text-primary font-logo">
+          <span className="font-logo text-xl font-bold text-primary">
             {siteConfig.name}
           </span>
         </Link>
 
-        <nav className="hidden md:flex gap-6 absolute left-1/2 -translate-x-1/2">
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 gap-6 md:flex">
           {routes.map((route) => (
             <Link
               key={route.href}
@@ -45,8 +49,8 @@ export default function Navbar() {
               className={cn(
                 "text-sm font-medium transition-colors hover:text-green-700",
                 pathname === route.href
-                  ? "text-green-700 font-semibold underline underline-offset-4"
-                  : "text-muted-foreground"
+                  ? "font-semibold text-green-700 underline underline-offset-4"
+                  : "text-muted-foreground",
               )}
             >
               {route.label}
@@ -54,7 +58,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:block absolute right-0 pr-4">
+        <div className="absolute right-0 hidden pr-4 md:block">
           <Button
             asChild
             animate="pulse"
@@ -66,7 +70,7 @@ export default function Navbar() {
         </div>
 
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild className="md:hidden absolute right-0 mr-4">
+          <SheetTrigger asChild className="absolute right-0 mr-4 md:hidden">
             <Button variant="outline" size="icon" aria-label="Menu">
               <Menu className="h-5 w-5" />
             </Button>
@@ -81,8 +85,8 @@ export default function Navbar() {
                   className={cn(
                     "text-base font-medium transition-colors hover:text-green-700",
                     pathname === route.href
-                      ? "text-green-700 font-semibold"
-                      : "text-muted-foreground"
+                      ? "font-semibold text-green-700"
+                      : "text-muted-foreground",
                   )}
                 >
                   {route.label}

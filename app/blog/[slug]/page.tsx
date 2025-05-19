@@ -1,22 +1,39 @@
-import Image from "next/image"
-import Link from "next/link"
-import type { Metadata } from "next"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Calendar, Clock, Facebook, Linkedin, Twitter, User } from "lucide-react"
+import type { Metadata } from "next";
+
+import {
+  Calendar,
+  Clock,
+  Facebook,
+  Linkedin,
+  Twitter,
+  User,
+} from "lucide-react";
+
+import Image from "next/image";
+import Link from "next/link";
+
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 interface BlogPost {
-  title: string
-  slug: string
-  excerpt: string
-  content: string
-  image: string
-  date: string
-  author: string
-  authorImage?: string
-  authorBio?: string
-  category: string
-  readTime: number
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: string;
+  image: string;
+  date: string;
+  author: string;
+  authorImage?: string;
+  authorBio?: string;
+  category: string;
+  readTime: number;
 }
 
 // This would typically come from a CMS or database
@@ -37,10 +54,10 @@ const blogPosts: BlogPost[] = [
       <ul>
         <li>Trees are less susceptible to stress</li>
         <li>Disease-causing organisms are typically inactive</li>
-        <li>The tree's structure is clearly visible without leaves</li>
+        <li>The tree&apos;s structure is clearly visible without leaves</li>
         <li>Wounds heal quickly once spring growth begins</li>
       </ul>
-      
+
       <p>Examples of deciduous trees include oak, maple, birch, and elm.</p>
       
       <h2>Flowering Trees</h2>
@@ -67,15 +84,19 @@ const blogPosts: BlogPost[] = [
         <li>Walnut</li>
         <li>Elm</li>
       </ul>
-      <p>While this bleeding isn't harmful to the tree, it can be unsightly. For these species, it's better to prune in early summer after leaves have fully developed.</p>
+      <p>While this bleeding isn&apos;t harmful to the tree, it can be unsightly. For these species, it&apos;s better to prune in early summer after leaves have fully developed.</p>
       
       <h2>Emergency Pruning</h2>
-      <p>Damaged, diseased, or hazardous branches should be removed as soon as they're noticed, regardless of season. The risk posed by these branches outweighs any concerns about pruning timing.</p>
+      <p>Damaged, diseased, or hazardous branches should be removed as soon as they&apos;re noticed, regardless of season. The risk posed by these branches outweighs any concerns about pruning timing.</p>
       
       <h2>Professional Assistance</h2>
-      <p>For large trees or significant pruning needs, it's always best to consult with a certified arborist. They can assess the specific needs of your trees and provide expert pruning services that promote long-term health and structural integrity.</p>
-      
-      <p>Remember, proper pruning techniques are just as important as timing. Always make clean cuts at the proper locations to promote healing and minimize stress to the tree.</p>
+          <p>For large trees or significant pruning needs, it&apos;s always best to consult with a certified arborist. They can assess the specific needs of your trees and provide expert pruning services that promote long-term health and structural integrity.</p>
+
+      <p>
+        Remember, proper pruning techniques are just as important as timing.
+        Always make clean cuts at the proper locations to promote healing and
+        minimize stress to the tree.
+      </p>
     `,
     image: "/placeholder.svg?height=600&width=1200",
     date: "May 15, 2023",
@@ -86,16 +107,20 @@ const blogPosts: BlogPost[] = [
     category: "Tree Maintenance",
     readTime: 8,
   },
-]
+];
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = blogPosts.find((post) => post.slug === params.slug)
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const post = blogPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
     return {
       title: "Blog Post Not Found",
       description: "The requested blog post could not be found.",
-    }
+    };
   }
 
   return {
@@ -108,45 +133,53 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       publishedTime: post.date,
       authors: [post.author],
     },
-  }
+  };
 }
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = blogPosts.find((post) => post.slug === params.slug)
+  const post = blogPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
     return (
       <div className="container py-16 md:py-24">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-3xl font-bold mb-4">Blog Post Not Found</h1>
-          <p className="text-muted-foreground mb-8">
-            The blog post you're looking for doesn't exist or has been moved.
+        <div className="mx-auto max-w-3xl text-center">
+          <h1 className="mb-4 text-3xl font-bold">Blog Post Not Found</h1>
+          <p className="mb-8 text-muted-foreground">
+            The blog post you&apos;re looking for doesn&apos;t exist or has been
+            moved.
           </p>
           <Button asChild className="bg-green-700 hover:bg-green-800">
             <Link href="/blog">Back to Blog</Link>
           </Button>
         </div>
       </div>
-    )
+    );
   }
 
   return (
     <>
       {/* Hero Section */}
       <section className="relative">
-        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="absolute inset-0 z-10 bg-black/40" />
         <div className="relative h-[400px]">
-          <Image src={post.image || "/placeholder.svg"} alt={post.title} fill className="object-cover" />
+          <Image
+            src={post.image || "/placeholder.svg"}
+            alt={post.title}
+            fill
+            className="object-cover"
+          />
         </div>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div className="container text-center text-white">
-            <div className="max-w-3xl mx-auto">
+            <div className="mx-auto max-w-3xl">
               <div className="mb-4">
-                <span className="bg-green-700 text-white text-sm font-medium px-2.5 py-0.5 rounded">
+                <span className="rounded bg-green-700 px-2.5 py-0.5 text-sm font-medium text-white">
                   {post.category}
                 </span>
               </div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">{post.title}</h1>
+              <h1 className="mb-4 text-3xl font-bold md:text-4xl lg:text-5xl">
+                {post.title}
+              </h1>
               <div className="flex flex-wrap items-center justify-center gap-6">
                 <div className="flex items-center gap-2 text-sm">
                   <Calendar className="h-4 w-4" />
@@ -169,14 +202,14 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       {/* Blog Content */}
       <section className="py-16 md:py-24">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
             <div className="lg:col-span-8">
               <article className="prose prose-green max-w-none">
                 <div dangerouslySetInnerHTML={{ __html: post.content }} />
               </article>
 
               {/* Share Links */}
-              <div className="mt-12 pt-6 border-t">
+              <div className="mt-12 border-t pt-6">
                 <div className="flex items-center gap-4">
                   <span className="font-semibold">Share this article:</span>
                   <div className="flex gap-2">
@@ -201,10 +234,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
               {/* Author Bio */}
               {post.authorBio && (
-                <div className="mt-12 p-6 bg-green-50 rounded-lg">
+                <div className="mt-12 rounded-lg bg-green-50 p-6">
                   <div className="flex items-start gap-4">
                     {post.authorImage && (
-                      <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+                      <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-full">
                         <Image
                           src={post.authorImage || "/placeholder.svg"}
                           alt={post.author}
@@ -215,7 +248,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                       </div>
                     )}
                     <div>
-                      <h3 className="font-semibold text-lg mb-2">About {post.author}</h3>
+                      <h3 className="mb-2 text-lg font-semibold">
+                        About {post.author}
+                      </h3>
                       <p className="text-muted-foreground">{post.authorBio}</p>
                     </div>
                   </div>
@@ -233,18 +268,23 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2">
-                      {["Tree Health", "Maintenance Tips", "Safety", "Landscaping", "Seasonal Care", "Services"].map(
-                        (category, index) => (
-                          <li key={index}>
-                            <Link
-                              href={`/blog/category/${category.toLowerCase().replace(/\s+/g, "-")}`}
-                              className="text-muted-foreground hover:text-green-700"
-                            >
-                              {category}
-                            </Link>
-                          </li>
-                        ),
-                      )}
+                      {[
+                        "Tree Health",
+                        "Maintenance Tips",
+                        "Safety",
+                        "Landscaping",
+                        "Seasonal Care",
+                        "Services",
+                      ].map((category, index) => (
+                        <li key={index}>
+                          <Link
+                            href={`/blog/category/${category.toLowerCase().replace(/\s+/g, "-")}`}
+                            className="text-muted-foreground hover:text-green-700"
+                          >
+                            {category}
+                          </Link>
+                        </li>
+                      ))}
                     </ul>
                   </CardContent>
                 </Card>
@@ -258,7 +298,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                     <ul className="space-y-4">
                       {blogPosts.slice(0, 3).map((recentPost, index) => (
                         <li key={index} className="flex gap-3">
-                          <div className="relative w-16 h-16 rounded overflow-hidden flex-shrink-0">
+                          <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded">
                             <Image
                               src={recentPost.image || "/placeholder.svg"}
                               alt={recentPost.title}
@@ -269,11 +309,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                           <div>
                             <Link
                               href={`/blog/${recentPost.slug}`}
-                              className="font-medium hover:text-green-700 line-clamp-2"
+                              className="line-clamp-2 font-medium hover:text-green-700"
                             >
                               {recentPost.title}
                             </Link>
-                            <p className="text-xs text-muted-foreground mt-1">{recentPost.date}</p>
+                            <p className="mt-1 text-xs text-muted-foreground">
+                              {recentPost.date}
+                            </p>
                           </div>
                         </li>
                       ))}
@@ -290,17 +332,21 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 <Card>
                   <CardHeader>
                     <CardTitle>Newsletter</CardTitle>
-                    <CardDescription>Stay updated with our latest articles and tree care tips.</CardDescription>
+                    <CardDescription>
+                      Stay updated with our latest articles and tree care tips.
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <form className="space-y-4">
                       <input
                         type="email"
                         placeholder="Your email address"
-                        className="w-full px-3 py-2 border rounded-md"
+                        className="w-full rounded-md border px-3 py-2"
                         required
                       />
-                      <Button className="w-full bg-green-700 hover:bg-green-800">Subscribe</Button>
+                      <Button className="w-full bg-green-700 hover:bg-green-800">
+                        Subscribe
+                      </Button>
                     </form>
                   </CardContent>
                 </Card>
@@ -311,18 +357,18 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Related Posts */}
-      <section className="py-16 md:py-24 bg-green-50">
+      <section className="bg-green-50 py-16 md:py-24">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Related Articles</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold">Related Articles</h2>
+            <p className="mx-auto max-w-2xl text-muted-foreground">
               Continue exploring tree care topics with these related articles
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {blogPosts.slice(0, 3).map((relatedPost, index) => (
-              <Card key={index} className="h-full flex flex-col">
+              <Card key={index} className="flex h-full flex-col">
                 <div className="relative aspect-[16/9] w-full overflow-hidden rounded-t-lg">
                   <Image
                     src={relatedPost.image || "/placeholder.svg"}
@@ -332,14 +378,19 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                   />
                 </div>
                 <CardHeader className="flex-grow">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-sm text-muted-foreground">{relatedPost.category}</span>
+                  <div className="mb-2 flex items-center gap-2">
+                    <span className="text-sm text-muted-foreground">
+                      {relatedPost.category}
+                    </span>
                   </div>
                   <CardTitle className="mb-2">{relatedPost.title}</CardTitle>
                   <CardDescription>{relatedPost.excerpt}</CardDescription>
                 </CardHeader>
                 <CardFooter className="border-t pt-4">
-                  <Button asChild className="w-full bg-green-700 hover:bg-green-800">
+                  <Button
+                    asChild
+                    className="w-full bg-green-700 hover:bg-green-800"
+                  >
                     <Link href={`/blog/${relatedPost.slug}`}>Read Article</Link>
                   </Button>
                 </CardFooter>
@@ -350,17 +401,24 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-green-800 text-white">
+      <section className="bg-green-800 py-16 text-white md:py-24">
         <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Need Professional Tree Care?</h2>
-          <p className="text-lg max-w-2xl mx-auto mb-8">
-            Contact our team of certified arborists for expert tree services and personalized advice.
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+            Need Professional Tree Care?
+          </h2>
+          <p className="mx-auto mb-8 max-w-2xl text-lg">
+            Contact our team of certified arborists for expert tree services and
+            personalized advice.
           </p>
-          <Button asChild size="lg" className="bg-white text-green-800 hover:bg-gray-100">
+          <Button
+            asChild
+            size="lg"
+            className="bg-white text-green-800 hover:bg-gray-100"
+          >
             <Link href="/contact">Get Your Free Quote</Link>
           </Button>
         </div>
       </section>
     </>
-  )
+  );
 }

@@ -1,6 +1,8 @@
+import type { Metadata } from "next";
+
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
+
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -15,7 +17,7 @@ export default function GalleryPage() {
     <>
       {/* Hero Section */}
       <section className="relative">
-        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="absolute inset-0 z-10 bg-black/40" />
         <div className="relative h-[400px]">
           <Image
             src="/placeholder.svg?height=400&width=1920"
@@ -26,10 +28,10 @@ export default function GalleryPage() {
         </div>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div className="container text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="mb-4 text-4xl font-bold md:text-5xl">
               Project Gallery
             </h1>
-            <p className="text-xl max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-xl">
               Browse our portfolio of completed tree service projects
             </p>
           </div>
@@ -40,8 +42,8 @@ export default function GalleryPage() {
       <section className="py-16 md:py-24">
         <div className="container">
           <Tabs defaultValue="all" className="w-full">
-            <div className="flex justify-center mb-8">
-              <TabsList className="grid grid-cols-2 md:grid-cols-5 w-full max-w-2xl">
+            <div className="mb-8 flex justify-center">
+              <TabsList className="grid w-full max-w-2xl grid-cols-2 md:grid-cols-5">
                 <TabsTrigger value="all">All Projects</TabsTrigger>
                 <TabsTrigger value="removal">Tree Removal</TabsTrigger>
                 <TabsTrigger value="trimming">Tree Trimming</TabsTrigger>
@@ -51,7 +53,7 @@ export default function GalleryPage() {
             </div>
 
             <TabsContent value="all" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {projects.map((project, index) => (
                   <GalleryItem key={index} project={project} />
                 ))}
@@ -59,7 +61,7 @@ export default function GalleryPage() {
             </TabsContent>
 
             <TabsContent value="removal" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {projects
                   .filter((project) => project.category === "removal")
                   .map((project, index) => (
@@ -69,7 +71,7 @@ export default function GalleryPage() {
             </TabsContent>
 
             <TabsContent value="trimming" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {projects
                   .filter((project) => project.category === "trimming")
                   .map((project, index) => (
@@ -79,7 +81,7 @@ export default function GalleryPage() {
             </TabsContent>
 
             <TabsContent value="stump" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {projects
                   .filter((project) => project.category === "stump")
                   .map((project, index) => (
@@ -89,7 +91,7 @@ export default function GalleryPage() {
             </TabsContent>
 
             <TabsContent value="emergency" className="mt-0">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {projects
                   .filter((project) => project.category === "emergency")
                   .map((project, index) => (
@@ -102,44 +104,44 @@ export default function GalleryPage() {
       </section>
 
       {/* Before & After */}
-      <section className="py-16 md:py-24 bg-green-50">
+      <section className="bg-green-50 py-16 md:py-24">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
               Before & After
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
               See the dramatic transformations our services can provide
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
             {beforeAfterProjects.map((project, index) => (
               <div key={index} className="space-y-4">
                 <h3 className="text-xl font-semibold">{project.title}</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <div className="relative aspect-square rounded-lg overflow-hidden">
+                    <div className="relative aspect-square overflow-hidden rounded-lg">
                       <Image
                         src={project.before || "/placeholder.svg"}
                         alt={`Before: ${project.title}`}
                         fill
                         className="object-cover"
                       />
-                      <div className="absolute bottom-0 left-0 bg-black/70 text-white px-3 py-1 text-sm">
+                      <div className="absolute bottom-0 left-0 bg-black/70 px-3 py-1 text-sm text-white">
                         Before
                       </div>
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <div className="relative aspect-square rounded-lg overflow-hidden">
+                    <div className="relative aspect-square overflow-hidden rounded-lg">
                       <Image
                         src={project.after || "/placeholder.svg"}
                         alt={`After: ${project.title}`}
                         fill
                         className="object-cover"
                       />
-                      <div className="absolute bottom-0 left-0 bg-green-700 text-white px-3 py-1 text-sm">
+                      <div className="absolute bottom-0 left-0 bg-green-700 px-3 py-1 text-sm text-white">
                         After
                       </div>
                     </div>
@@ -153,12 +155,12 @@ export default function GalleryPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-green-800 text-white">
+      <section className="bg-green-800 py-16 text-white md:py-24">
         <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
             Ready to Transform Your Property?
           </h2>
-          <p className="text-lg max-w-2xl mx-auto mb-8">
+          <p className="mx-auto mb-8 max-w-2xl text-lg">
             Contact us today to discuss your tree care needs and join our
             portfolio of successful projects.
           </p>
@@ -197,7 +199,7 @@ function GalleryItem({ project }: { project: Project }) {
       </div>
       <div className="p-5">
         <h3 className="text-lg font-semibold">{project.title}</h3>
-        <p className="text-sm text-muted-foreground mb-2">{project.location}</p>
+        <p className="mb-2 text-sm text-muted-foreground">{project.location}</p>
         <p className="text-muted-foreground">{project.description}</p>
       </div>
     </div>

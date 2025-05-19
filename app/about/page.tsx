@@ -1,22 +1,27 @@
-import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
-import { Button } from "@/components/ui/button";
+
 import {
   Award,
+  Calendar,
   CheckCircle,
+  Leaf,
   TreePine,
   Users,
-  Calendar,
-  Leaf,
 } from "lucide-react";
-import { siteConfig } from "@/lib/siteConfig";
-import { Badge } from "@/components/ui/badge";
+
+import Image from "next/image";
+import Link from "next/link";
+
 import desktopHero from "@/public/about/hero-desktop.webp";
 import mobileHero from "@/public/about/hero-mobile.webp";
 import ourTeam from "@/public/about/our-team.webp";
-import rob from "@/public/about/team-member-rob.webp";
 import alec from "@/public/about/team-member-alec.webp";
+import rob from "@/public/about/team-member-rob.webp";
+
+import { siteConfig } from "@/lib/siteConfig";
+
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -29,7 +34,7 @@ export default function AboutPage() {
     <>
       {/* Hero Section */}
       <section className="relative">
-        <div className="absolute inset-0 bg-black/45 z-10" />
+        <div className="absolute inset-0 z-10 bg-black/45" />
         <div className="relative h-[400px] w-full">
           {/* Desktop image */}
           <Image
@@ -38,7 +43,7 @@ export default function AboutPage() {
             fill
             priority
             placeholder="blur"
-            className="object-top object-cover hidden md:block"
+            className="hidden object-cover object-top md:block"
             sizes="(min-width: 768px) 100vw"
           />
 
@@ -49,16 +54,16 @@ export default function AboutPage() {
             fill
             priority
             placeholder="blur"
-            className="object-top object-cover block md:hidden"
+            className="block object-cover object-top md:hidden"
             sizes="(max-width: 767px) 100vw"
           />
         </div>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div className="container text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-shadow-lg">
+            <h1 className="mb-4 text-4xl font-bold text-shadow-lg md:text-5xl">
               About Copper Top
             </h1>
-            <p className="text-xl max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-xl">
               Professional tree care with a commitment to quality and customer
               satisfaction
             </p>
@@ -69,13 +74,13 @@ export default function AboutPage() {
       {/* Our Story */}
       <section className="py-16 md:py-24">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div>
               <Badge variant="accent" size="lg" className="mb-3">
                 <TreePine className="size-4" />
                 <span>Our Story</span>
               </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="mb-6 text-3xl font-bold md:text-4xl">
                 Honesty and Integrity in Tree Care
               </h2>
               <div className="space-y-4 text-muted-foreground">
@@ -96,12 +101,12 @@ export default function AboutPage() {
                   We use science-based practices to support tree health,
                   structural integrity, and longevity. Avoiding unnecessary
                   removals and prunings that do more harm than good. Whether
-                  it's trimming, preservation, or health diagnostics, we always
-                  consider what’s best for the tree and the environment around
-                  it.
+                  it&apos;s trimming, preservation, or health diagnostics, we
+                  always consider what&apos;s best for the tree and the
+                  environment around it.
                 </p>
               </div>
-              <div className="flex items-center gap-8 mt-8">
+              <div className="mt-8 flex items-center gap-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-green-700">10+</div>
                   <div className="text-sm text-muted-foreground">
@@ -116,7 +121,7 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-            <div className="relative h-[400px] rounded-lg overflow-hidden">
+            <div className="relative h-[400px] overflow-hidden rounded-lg">
               <Image
                 src={ourTeam}
                 alt={`${siteConfig.name} - Our Team`}
@@ -131,45 +136,45 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Values */}
-      <section className="py-16 md:py-24 bg-green-50">
+      <section className="bg-green-50 py-16 md:py-24">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
               Our Mission & Values
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
               Guided by principles that prioritize quality, safety, and
               environmental responsibility
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="bg-white p-8 rounded-lg shadow-sm border border-green-100">
-              <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-6">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+            <div className="rounded-lg border border-green-100 bg-white p-8 shadow-sm">
+              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
                 <Award className="h-6 w-6 text-green-700" />
               </div>
-              <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
-              <p className="text-muted-foreground mb-6">
+              <h3 className="mb-4 text-2xl font-bold">Our Mission</h3>
+              <p className="mb-6 text-muted-foreground">
                 To provide exceptional tree care services that enhance the
-                beauty, health, and safety of our clients' properties while
+                beauty, health, and safety of our clients&apos; properties while
                 maintaining the highest standards of professionalism, safety,
                 and environmental stewardship.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-700 mt-0.5" />
+                  <CheckCircle className="mt-0.5 h-5 w-5 text-green-700" />
                   <span>
                     Deliver superior tree care with attention to detail
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-700 mt-0.5" />
+                  <CheckCircle className="mt-0.5 h-5 w-5 text-green-700" />
                   <span>
                     Build lasting relationships through exceptional service
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-700 mt-0.5" />
+                  <CheckCircle className="mt-0.5 h-5 w-5 text-green-700" />
                   <span>
                     Contribute to healthier, safer, and more beautiful
                     communities
@@ -178,18 +183,18 @@ export default function AboutPage() {
               </ul>
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-sm border border-green-100">
-              <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-6">
+            <div className="rounded-lg border border-green-100 bg-white p-8 shadow-sm">
+              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
                 <TreePine className="h-6 w-6 text-green-700" />
               </div>
-              <h3 className="text-2xl font-bold mb-4">Our Values</h3>
+              <h3 className="mb-4 text-2xl font-bold">Our Values</h3>
               <ul className="space-y-6">
                 <li className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-green-100">
                     <Users className="h-4 w-4 text-green-700" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Safety First</h4>
+                    <h4 className="mb-1 font-semibold">Safety First</h4>
                     <p className="text-muted-foreground">
                       The safety of our team, clients, and property is our top
                       priority in every project we undertake.
@@ -197,11 +202,11 @@ export default function AboutPage() {
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-green-100">
                     <Award className="h-4 w-4 text-green-700" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Quality & Expertise</h4>
+                    <h4 className="mb-1 font-semibold">Quality & Expertise</h4>
                     <p className="text-muted-foreground">
                       We maintain the highest standards of quality through
                       continuous training and professional development.
@@ -209,11 +214,11 @@ export default function AboutPage() {
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-green-100">
                     <Leaf className="h-4 w-4 text-green-700" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">
+                    <h4 className="mb-1 font-semibold">
                       Environmental Responsibility
                     </h4>
                     <p className="text-muted-foreground">
@@ -223,11 +228,11 @@ export default function AboutPage() {
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-green-100">
                     <Calendar className="h-4 w-4 text-green-700" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">
+                    <h4 className="mb-1 font-semibold">
                       Reliability & Integrity
                     </h4>
                     <p className="text-muted-foreground">
@@ -245,18 +250,18 @@ export default function AboutPage() {
       {/* Our Team */}
       <section className="py-16 md:py-24">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
               Meet Our Team
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
               Our certified arborists and experienced professionals are
               dedicated to providing exceptional tree care
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-center items-start gap-8">
-            <div className="bg-white rounded-lg overflow-hidden border border-green-100 max-w-[300px]">
+          <div className="flex flex-col items-start justify-center gap-8 md:flex-row">
+            <div className="max-w-[300px] overflow-hidden rounded-lg border border-green-100 bg-white">
               <div className="relative h-80">
                 <Image
                   alt="Rob Hansen - Owner & ISA Certified Arborist RM-8738A"
@@ -268,11 +273,11 @@ export default function AboutPage() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-1">Rob Hansen</h3>
-                <p className="text-green-700 font-medium mb-4">
+                <h3 className="mb-1 text-xl font-bold">Rob Hansen</h3>
+                <p className="mb-4 font-medium text-green-700">
                   Owner & ISA Certified Arborist RM-8738A
                 </p>
-                <p className="text-muted-foreground mb-4">
+                <p className="mb-4 text-muted-foreground">
                   Rob started his career in fire mitigation and forest
                   management, gaining a deep understanding of tree health. He
                   founded Copper Top Tree Care with a clear vision: to provide
@@ -286,7 +291,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg overflow-hidden border border-green-100 max-w-[300px] ">
+            <div className="max-w-[300px] overflow-hidden rounded-lg border border-green-100 bg-white">
               <div className="relative h-80">
                 <Image
                   alt="Alec Hansen - Owner & Operations Manager"
@@ -298,11 +303,11 @@ export default function AboutPage() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-1">Alec Hansen</h3>
-                <p className="text-green-700 font-medium mb-4">
+                <h3 className="mb-1 text-xl font-bold">Alec Hansen</h3>
+                <p className="mb-4 font-medium text-green-700">
                   Owner & Operations Manager
                 </p>
-                <p className="text-muted-foreground mb-4">
+                <p className="mb-4 text-muted-foreground">
                   Alec specializes in tree health assessment and preservation,
                   bringing extensive knowledge of tree species, diseases, and
                   treatment methods to our team.
@@ -317,14 +322,14 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-green-800 text-white">
+      <section className="bg-green-800 py-16 text-white md:py-24">
         <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
             Ready to Work With Us?
           </h2>
-          <p className="text-lg max-w-2xl mx-auto mb-8">
+          <p className="mx-auto mb-8 max-w-2xl text-lg">
             Contact us today to schedule a consultation with our expert team.
-            We're ready to help with all your tree care needs.
+            We&apos;re ready to help with all your tree care needs.
           </p>
           <Button
             asChild

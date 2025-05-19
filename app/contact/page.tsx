@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import ContactPageClient from "./ContactPageClient";
 
 // Note: Metadata can't be exported from a Client Component

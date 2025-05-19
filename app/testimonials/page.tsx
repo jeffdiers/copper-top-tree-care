@@ -1,9 +1,12 @@
+import type { Metadata } from "next";
+
+import { Star } from "lucide-react";
+
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Customer Testimonials",
@@ -16,7 +19,7 @@ export default function TestimonialsPage() {
     <>
       {/* Hero Section */}
       <section className="relative">
-        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="absolute inset-0 z-10 bg-black/40" />
         <div className="relative h-[400px]">
           <Image
             src="/placeholder.svg?height=400&width=1920"
@@ -27,12 +30,12 @@ export default function TestimonialsPage() {
         </div>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div className="container text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="mb-4 text-4xl font-bold md:text-5xl">
               Customer Testimonials
             </h1>
-            <p className="text-xl max-w-2xl mx-auto">
-              Don't just take our word for it. See what our customers have to
-              say about our services.
+            <p className="mx-auto max-w-2xl text-xl">
+              Don&apos;t just take our word for it. See what our customers have
+              to say about our services.
             </p>
           </div>
         </div>
@@ -41,7 +44,7 @@ export default function TestimonialsPage() {
       {/* Testimonials Grid */}
       <section className="py-16 md:py-24">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((testimonial, index) => (
               <TestimonialCard key={index} testimonial={testimonial} />
             ))}
@@ -50,32 +53,32 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Video Testimonials */}
-      <section className="py-16 md:py-24 bg-green-50">
+      <section className="bg-green-50 py-16 md:py-24">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
               Video Testimonials
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
               Watch what our customers have to say about their experience with
               Copper Top Tree Services
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {[1, 2].map((item) => (
               <div
                 key={item}
-                className="bg-white rounded-lg overflow-hidden shadow-sm border border-green-100"
+                className="overflow-hidden rounded-lg border border-green-100 bg-white shadow-sm"
               >
-                <div className="aspect-video bg-gray-200 flex items-center justify-center">
+                <div className="flex aspect-video items-center justify-center bg-gray-200">
                   <p className="text-muted-foreground">
                     Video Testimonial {item}
                   </p>
                 </div>
                 <div className="p-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-gray-200"></div>
+                  <div className="mb-4 flex items-center gap-4">
+                    <div className="h-12 w-12 rounded-full bg-gray-200"></div>
                     <div>
                       <h3 className="font-semibold">Video Customer {item}</h3>
                       <p className="text-sm text-muted-foreground">
@@ -84,9 +87,9 @@ export default function TestimonialsPage() {
                     </div>
                   </div>
                   <p className="text-muted-foreground">
-                    "Copper Top Tree Services did an amazing job with our
+                    &quot;Copper Top Tree Services did an amazing job with our
                     property. The team was professional, efficient, and left our
-                    yard cleaner than when they arrived."
+                    yard cleaner than when they arrived.&quot;
                   </p>
                 </div>
               </div>
@@ -98,12 +101,12 @@ export default function TestimonialsPage() {
       {/* Leave a Review */}
       <section className="py-16 md:py-24">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
               Share Your Experience
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              We value your feedback! If you've used our services, please
+            <p className="mb-8 text-lg text-muted-foreground">
+              We value your feedback! If you&apos;ve used our services, please
               consider leaving a review on one of these platforms.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -140,12 +143,12 @@ export default function TestimonialsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-green-800 text-white">
+      <section className="bg-green-800 py-16 text-white md:py-24">
         <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
             Ready to Experience Our Service?
           </h2>
-          <p className="text-lg max-w-2xl mx-auto mb-8">
+          <p className="mx-auto mb-8 max-w-2xl text-lg">
             Join our satisfied customers and see why they recommend Copper Top
             Tree Services.
           </p>
@@ -176,9 +179,9 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
     <Card className="h-full">
       <CardContent className="p-6">
-        <div className="flex justify-between items-start mb-4">
+        <div className="mb-4 flex items-start justify-between">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-green-100 overflow-hidden">
+            <div className="h-12 w-12 overflow-hidden rounded-full bg-green-100">
               {testimonial.image ? (
                 <Image
                   src={testimonial.image || "/placeholder.svg"}
@@ -188,7 +191,7 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
                   className="object-cover"
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center text-green-700 font-semibold">
+                <div className="flex h-full w-full items-center justify-center font-semibold text-green-700">
                   {testimonial.name.charAt(0)}
                 </div>
               )}
@@ -204,13 +207,13 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
             {Array.from({ length: testimonial.rating }).map((_, i) => (
               <Star
                 key={i}
-                className="h-5 w-5 text-yellow-400 fill-yellow-400"
+                className="h-5 w-5 fill-yellow-400 text-yellow-400"
               />
             ))}
           </div>
         </div>
         <div>
-          <div className="flex justify-between text-sm text-muted-foreground mb-2">
+          <div className="mb-2 flex justify-between text-sm text-muted-foreground">
             <span>{testimonial.service}</span>
             <span>{testimonial.date}</span>
           </div>

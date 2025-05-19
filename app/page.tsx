@@ -1,6 +1,23 @@
-import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
+
+import {
+  Award,
+  Axe,
+  CheckCircle,
+  Clock,
+  Leaf,
+  ShieldCheck,
+  TreePine,
+} from "lucide-react";
+
+import Image from "next/image";
+import Link from "next/link";
+
+import desktopHero from "@/public/hero-desktop.webp";
+import mobileHero from "@/public/hero-mobile.webp";
+
+import { siteConfig } from "@/lib/siteConfig";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,18 +26,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  CheckCircle,
-  TreePine,
-  Leaf,
-  Axe,
-  Clock,
-  Award,
-  ShieldCheck,
-} from "lucide-react";
-import { siteConfig } from "@/lib/siteConfig";
-import mobileHero from "@/public/hero-mobile.webp";
-import desktopHero from "@/public/hero-desktop.webp";
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} | Professional Tree Services`,
@@ -33,7 +38,7 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="relative">
-        <div className="absolute inset-0 bg-black/45 z-10" />
+        <div className="absolute inset-0 z-10 bg-black/45" />
         <div className="relative h-[600px] w-full">
           {/* Desktop image */}
           <Image
@@ -42,7 +47,7 @@ export default function Home() {
             fill
             priority
             placeholder="blur"
-            className="object-top object-cover hidden md:block"
+            className="hidden object-cover object-top md:block"
             sizes="(min-width: 768px) 100vw"
           />
 
@@ -53,20 +58,20 @@ export default function Home() {
             fill
             priority
             placeholder="blur"
-            className="object-top object-cover  block md:hidden"
+            className="block object-cover object-top md:hidden"
             sizes="(max-width: 767px) 100vw"
           />
         </div>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div className="container text-center text-white">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-shadow-lg">
+            <h1 className="mb-4 text-4xl font-bold text-shadow-lg md:text-5xl lg:text-6xl">
               Professional Tree Services
             </h1>
-            <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-8">
+            <p className="mx-auto mb-8 max-w-2xl text-xl md:text-2xl">
               Expert tree care solutions for residential and commercial
               properties
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button asChild size="lg" variant="secondary">
                 <Link href="/contact">Get a Free Quote</Link>
               </Button>
@@ -79,22 +84,22 @@ export default function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+      <section className="bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
               Our Services
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
               We provide comprehensive tree care services to keep your property
               safe and beautiful
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             <Card>
               <CardHeader className="pb-2">
-                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
                   <TreePine className="h-6 w-6 text-secondary" />
                 </div>
                 <CardTitle>Tree Trimming</CardTitle>
@@ -106,7 +111,7 @@ export default function Home() {
                 </CardDescription>
                 <Link
                   href="/services#tree-trimming"
-                  className="text-secondary font-medium inline-block mt-4 hover:underline"
+                  className="mt-4 inline-block font-medium text-secondary hover:underline"
                 >
                   Learn more about tree trimming
                 </Link>
@@ -115,7 +120,7 @@ export default function Home() {
 
             <Card>
               <CardHeader className="pb-2">
-                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
                   <Axe className="h-6 w-6 text-secondary" />
                 </div>
                 <CardTitle>Tree Removal</CardTitle>
@@ -127,7 +132,7 @@ export default function Home() {
                 </CardDescription>
                 <Link
                   href="/services#tree-removal"
-                  className="text-secondary font-medium inline-block mt-4 hover:underline"
+                  className="mt-4 inline-block font-medium text-secondary hover:underline"
                 >
                   Learn more about tree removal
                 </Link>
@@ -136,7 +141,7 @@ export default function Home() {
 
             <Card>
               <CardHeader className="pb-2">
-                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
                   <Leaf className="h-6 w-6 text-secondary" />
                 </div>
                 <CardTitle>Stump Grinding</CardTitle>
@@ -148,7 +153,7 @@ export default function Home() {
                 </CardDescription>
                 <Link
                   href="/services#stump-grinding"
-                  className="text-secondary font-medium inline-block mt-4 hover:underline"
+                  className="mt-4 inline-block font-medium text-secondary hover:underline"
                 >
                   Learn more about stump grinding
                 </Link>
@@ -157,7 +162,7 @@ export default function Home() {
 
             <Card>
               <CardHeader className="pb-2">
-                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
                   <Clock className="h-6 w-6 text-secondary" />
                 </div>
                 <CardTitle>Storm Recovery</CardTitle>
@@ -169,7 +174,7 @@ export default function Home() {
                 </CardDescription>
                 <Link
                   href="/services#storm-recovery"
-                  className="text-secondary font-medium inline-block mt-4 hover:underline"
+                  className="mt-4 inline-block font-medium text-secondary hover:underline"
                 >
                   Learn more about storm recovery
                 </Link>
@@ -177,7 +182,7 @@ export default function Home() {
             </Card>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="mt-12 text-center">
             <Button asChild variant="secondary">
               <Link href="/services">View All Services</Link>
             </Button>
@@ -186,26 +191,26 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16 md:py-24 bg-green-50">
+      <section className="bg-green-50 py-16 md:py-24">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
               Why Choose Copper Top
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We're committed to providing the highest quality tree care
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+              We&apos;re committed to providing the highest quality tree care
               services with safety and customer satisfaction as our top
               priorities
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="flex gap-4">
               <div className="flex-shrink-0">
                 <Award className="h-8 w-8 text-secondary" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Experienced Team</h3>
+                <h3 className="mb-2 text-xl font-semibold">Experienced Team</h3>
                 <p className="text-muted-foreground">
                   Our certified arborists have over 10 years of experience in
                   the tree care industry.
@@ -218,7 +223,7 @@ export default function Home() {
                 <ShieldCheck className="h-8 w-8 text-secondary" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">
+                <h3 className="mb-2 text-xl font-semibold">
                   Licensed & Insured
                 </h3>
                 <p className="text-muted-foreground">
@@ -233,7 +238,7 @@ export default function Home() {
                 <CheckCircle className="h-8 w-8 text-secondary" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Quality Service</h3>
+                <h3 className="mb-2 text-xl font-semibold">Quality Service</h3>
                 <p className="text-muted-foreground">
                   We take pride in our work and ensure every job is completed to
                   the highest standards.
@@ -246,7 +251,7 @@ export default function Home() {
                 <Clock className="h-8 w-8 text-secondary" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Prompt Response</h3>
+                <h3 className="mb-2 text-xl font-semibold">Prompt Response</h3>
                 <p className="text-muted-foreground">
                   Quick response times for both regular service and emergency
                   situations.
@@ -259,7 +264,7 @@ export default function Home() {
                 <Leaf className="h-8 w-8 text-secondary" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">Eco-Friendly</h3>
+                <h3 className="mb-2 text-xl font-semibold">Eco-Friendly</h3>
                 <p className="text-muted-foreground">
                   Environmentally responsible practices and proper disposal of
                   all tree waste.
@@ -272,7 +277,7 @@ export default function Home() {
                 <TreePine className="h-8 w-8 text-secondary" />
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2">
+                <h3 className="mb-2 text-xl font-semibold">
                   Comprehensive Care
                 </h3>
                 <p className="text-muted-foreground">
@@ -286,12 +291,12 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-green-800 text-white">
+      <section className="bg-green-800 py-16 text-white md:py-24">
         <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
             Ready to Transform Your Property?
           </h2>
-          <p className="text-lg max-w-2xl mx-auto mb-8">
+          <p className="mx-auto mb-8 max-w-2xl text-lg">
             Contact us today for a free consultation and estimate. Our team is
             ready to help with all your tree care needs.
           </p>

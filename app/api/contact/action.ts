@@ -1,11 +1,13 @@
 "use server";
 
-import { z } from "zod";
 import { Resend } from "resend";
-import { supabase } from "@/lib/supabase";
-import { CustomerConfirmationEmail } from "@/components/emails/customer-confirmation";
-import { AdminNotificationEmail } from "@/components/emails/admin-notification";
+import { z } from "zod";
+
 import { siteConfig } from "@/lib/siteConfig";
+import { supabase } from "@/lib/supabase";
+
+import { AdminNotificationEmail } from "@/components/emails/admin-notification";
+import { CustomerConfirmationEmail } from "@/components/emails/customer-confirmation";
 
 // Initialize Resend with your API key
 const resend = new Resend(process.env.RESEND_API_KEY);

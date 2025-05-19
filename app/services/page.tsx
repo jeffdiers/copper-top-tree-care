@@ -1,6 +1,28 @@
-import Link from "next/link";
-import Image from "next/image";
 import type { Metadata } from "next";
+
+import {
+  Axe,
+  Clock,
+  Leaf,
+  Scissors,
+  Shield,
+  Sprout,
+  TreePine,
+  Truck,
+} from "lucide-react";
+
+import Image from "next/image";
+import Link from "next/link";
+
+import desktopHero from "@/public/services/hero-desktop.webp";
+import mobileHero from "@/public/services/hero-mobile.webp";
+import stormRecovery from "@/public/services/storm-recovery.webp";
+import stumpGrinding from "@/public/services/stump-grinding.webp";
+import treeRemoval from "@/public/services/tree-removal.webp";
+import treeTrim from "@/public/services/tree-trimming.webp";
+
+import { siteConfig } from "@/lib/siteConfig";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,23 +31,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  TreePine,
-  Leaf,
-  Axe,
-  Clock,
-  Scissors,
-  Truck,
-  Shield,
-  Sprout,
-} from "lucide-react";
-import desktopHero from "@/public/services/hero-desktop.webp";
-import mobileHero from "@/public/services/hero-mobile.webp";
-import treeTrim from "@/public/services/tree-trimming.webp";
-import treeRemoval from "@/public/services/tree-removal.webp";
-import stumpGrinding from "@/public/services/stump-grinding.webp";
-import stormRecovery from "@/public/services/storm-recovery.webp";
-import { siteConfig } from "@/lib/siteConfig";
 
 const SERVICES_DATA = [
   {
@@ -97,7 +102,7 @@ export default function ServicesPage() {
     <>
       {/* Hero Section */}
       <section className="relative">
-        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="absolute inset-0 z-10 bg-black/40" />
         <div className="relative h-[400px]">
           {/* Desktop image */}
           <Image
@@ -106,7 +111,7 @@ export default function ServicesPage() {
             fill
             priority
             placeholder="blur"
-            className="object-cover hidden md:block"
+            className="hidden object-cover md:block"
             sizes="(min-width: 768px) 100vw"
           />
 
@@ -117,16 +122,16 @@ export default function ServicesPage() {
             fill
             priority
             placeholder="blur"
-            className="object-cover block md:hidden"
+            className="block object-cover md:hidden"
             sizes="(max-width: 767px) 100vw"
           />
         </div>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div className="container text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="mb-4 text-4xl font-bold md:text-5xl">
               Our Services
             </h1>
-            <p className="text-xl max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-xl">
               Comprehensive tree care solutions for residential and commercial
               properties
             </p>
@@ -137,11 +142,11 @@ export default function ServicesPage() {
       {/* Services Section */}
       <section className="py-16 md:py-24">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
             {SERVICES_DATA.map(
               ({ id, title, description, image, bullets, icon }) => (
                 <div id={id} key={id} className="scroll-mt-20">
-                  <div className="relative h-64 md:h-80 mb-6 rounded-lg overflow-hidden">
+                  <div className="relative mb-6 h-64 overflow-hidden rounded-lg md:h-80">
                     <Image
                       src={image}
                       alt={title}
@@ -149,17 +154,17 @@ export default function ServicesPage() {
                       className="object-cover"
                     />
                   </div>
-                  <div className="flex items-start flex-row gap-4 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                  <div className="mb-4 flex flex-row items-start gap-4">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-100">
                       {icon}
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold ">{title}</h2>
+                    <h2 className="text-2xl font-bold md:text-3xl">{title}</h2>
                   </div>
-                  <p className="text-muted-foreground mb-4">{description}</p>
-                  <ul className="space-y-2 mb-6">
+                  <p className="mb-4 text-muted-foreground">{description}</p>
+                  <ul className="mb-6 space-y-2">
                     {bullets.map((bullet, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <TreePine className="h-5 w-5 text-green-700 mt-0.5 flex-shrink-0" />
+                        <TreePine className="mt-0.5 h-5 w-5 flex-shrink-0 text-green-700" />
                         <span>{bullet}</span>
                       </li>
                     ))}
@@ -168,29 +173,29 @@ export default function ServicesPage() {
                     <Link href="/contact">Request Service</Link>
                   </Button>
                 </div>
-              )
+              ),
             )}
           </div>
         </div>
       </section>
 
       {/* Additional Services */}
-      <section className="py-16 md:py-24 bg-green-50">
+      <section className="bg-green-50 py-16 md:py-24">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
               Additional Services
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
               Beyond our core services, we offer a range of specialized tree
               care solutions
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="border-green-100 hover:border-green-300 transition-colors">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <Card className="border-green-100 transition-colors hover:border-green-300">
               <CardHeader className="pb-2">
-                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
                   <Truck className="h-6 w-6 text-green-700" />
                 </div>
                 <CardTitle>Lot Clearing</CardTitle>
@@ -203,9 +208,9 @@ export default function ServicesPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-green-100 hover:border-green-300 transition-colors">
+            <Card className="border-green-100 transition-colors hover:border-green-300">
               <CardHeader className="pb-2">
-                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
                   <Shield className="h-6 w-6 text-green-700" />
                 </div>
                 <CardTitle>Tree Health Assessment</CardTitle>
@@ -218,9 +223,9 @@ export default function ServicesPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-green-100 hover:border-green-300 transition-colors">
+            <Card className="border-green-100 transition-colors hover:border-green-300">
               <CardHeader className="pb-2">
-                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
                   <Sprout className="h-6 w-6 text-green-700" />
                 </div>
                 <CardTitle>Tree Planting</CardTitle>
@@ -237,12 +242,12 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-green-800 text-white">
+      <section className="bg-green-800 py-16 text-white md:py-24">
         <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
             Need Professional Tree Services?
           </h2>
-          <p className="text-lg max-w-2xl mx-auto mb-8">
+          <p className="mx-auto mb-8 max-w-2xl text-lg">
             Contact us today for a free consultation and estimate. Our team is
             ready to help with all your tree care needs.
           </p>
